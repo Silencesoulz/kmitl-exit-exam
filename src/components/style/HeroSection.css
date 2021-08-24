@@ -1,0 +1,132 @@
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.hero-container {
+  /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+  
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+ 
+}
+
+.hero-background {
+  background: url('/src/BG-2.JPG') center center/cover
+  no-repeat;
+  height: 100%;
+  opacity: 1;
+  
+}
+
+.type-writer{
+  text-decoration: underline;
+  font-style: oblique;
+  backdrop-filter: blur(2px);
+  margin-top: 8px;
+  color: rgb(235, 235, 235);
+  font-size: 38px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+
+.hero-container > h1 {
+  backdrop-filter: blur(2px);
+  color: #fff;
+  font-size: 100px;
+  margin-top: -100px;
+ 
+}
+
+.hero-container > p {
+  text-decoration: underline;
+  font-style: oblique;
+  backdrop-filter: blur(5px);
+  margin-top: 8px;
+  color: rgb(235, 235, 235);
+  font-size: 38px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+@media screen and (max-width: 320px){
+  .type-writer {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+  .hero-container > h1 {
+    font-size: 45px;
+    margin-top: -150px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .type-writer {
+    font-size: 28px;
+  
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 605px){
+  .hero-container > h1 {
+    font-size: 70px;
+    margin-top: -150px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 605px) {
+  .type-writer {
+    font-size: 40px;
+  
+  }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 320px) {
+  .hero-container > h1 {
+    font-size: 40px;
+  }
+}
+
+.hero-btns {
+  margin-top: 32px;
+  
+}
+
+.hero-btns .btn {
+  margin: 6px;
+}
+
+.fa-play-circle {
+  margin-left: 4px;
+}
+
+
+  .btn-mobile {
+    display: block;
+    text-decoration: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
