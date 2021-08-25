@@ -5,6 +5,8 @@ import Cards from '../Cards';
 import Footer from '../Footer';
 import Tips from './Tips';
 import ScrollToTop from '../ScrollToTop';
+
+
 function Home () {
     return (
         <>

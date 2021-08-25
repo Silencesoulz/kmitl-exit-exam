@@ -2,7 +2,7 @@ import React , { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './style/Navbar.css';
-import { auth } from '../config/firebase-config'
+import { auth, signInWithGoogle } from '../config/firebase-config';
 
 
 
@@ -24,7 +24,6 @@ function Navbar({ user }) {
     useEffect(() => {
         showButton();
     }, []);
-
     window.addEventListener('resize', showButton);
 
     return (
@@ -34,8 +33,6 @@ function Navbar({ user }) {
             <Link to="/" className = "navbar-logo" onClick={closeMobileMenu}>   
             KMITL Exit Exam &nbsp;&nbsp;
             <i class="fas fa-school"></i>   
-            <h1>{user.displayName}</h1>
-            <img src={user.photoURL} alt="profile image" />
             </Link>
                 <div className = 'menu-icon' onClick={ handleClick }>
              <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -63,21 +60,24 @@ function Navbar({ user }) {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/signup' 
+                        <Link to='/login' 
                         className='nav-links-mobile' 
                         onClick={closeMobileMenu}>
-                        Login
+                        <i className='fas fa-sign-in-alt' /> Login
                         <br />
-                        <i className='fas fa-sign-in-alt' />
+                        
                         </Link>
                     </li>                                
                 </ul>
-                <Link to='/signup' className='btn-mobile'>
+                <Link to='/login' 
+                className='btn-mobile'
+                onClick={signInWithGoogle}
+                >
                 {button && <Button buttonStyle='btn--outline'>
                 <i className='fas fa-sign-in-alt' /> Login
-
                 </Button>}
                 </Link>
+                {/* <h1>Hello, {user.email}</h1> */}
             </div>
         </nav>
     </>
