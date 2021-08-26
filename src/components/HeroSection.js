@@ -5,8 +5,8 @@ import './style/HeroSection.css';
 import './style/Button.css';
 import Tips from './pages/Tips';
 import Cards from './Cards';
-
 import Typewriter from 'typewriter-effect'
+
 
 
 function HeroSection() {
@@ -19,7 +19,6 @@ function HeroSection() {
             autoPlay
             loop
             muted/> */}
-    
             <br />
             <br />
             <br />

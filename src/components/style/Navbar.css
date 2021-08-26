@@ -115,6 +115,7 @@
   
   .nav-links-mobile {
     display: none;
+    text-decoration: none !important;
   }
   
   .menu-icon {
