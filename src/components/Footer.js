@@ -12,7 +12,12 @@ function Footer() {
           <div class='footer-link-items'>
             
             <h2>About Us</h2>
-            <Link to='/'className='footer-thai'>Address : อาคารกรมหลวงนราธิวาสราชนครินทร์ 
+            <Link 
+            to={'//www.google.com/maps/place/อาคารกรมหลวงนราธิวาสราชนครินทร์/@13.730545,100.7771939,19.23z/data=!4m13!1m7!3m6!1s0x311d664d1c95b4a1:0x7a8f908a105384a!2sSoi+Chalong+Krung+1,+Khwaeng+Lat+Krabang,+Khet+Lat+Krabang,+Krung+Thep+Maha+Nakhon+10520!3b1!8m2!3d13.727889!4d100.7682672!3m4!1s0x311d66361ebde36d:0x5c7c183c64f68e5d!8m2!3d13.7307804!4d100.77771'}
+            target='_blank'
+            className='footer-thai'>
+              
+            Address : อาคารกรมหลวงนราธิวาสราชนครินทร์ 
             ชั้น 10 เลขที่ 1 ซอยฉลองกรุง 1 แขวงลาดกระบัง 
             เขตลาดกระบัง กรุงเทพฯ 10520</Link>
           </div>

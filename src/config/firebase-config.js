@@ -1,7 +1,8 @@
 import firebase from "firebase";
 import "firebase/auth";
 
-const firebaseConfig = {
+
+const firebaseConfig = firebase.initializeApp({
     apiKey: "AIzaSyANIl5DNF-CNzf7AD64ykJsadztWx5Y5ig",
     authDomain: "my-exit-exam-react.firebaseapp.com",
     projectId: "my-exit-exam-react",
@@ -9,14 +10,11 @@ const firebaseConfig = {
     messagingSenderId: "281502512739",
     appId: "1:281502512739:web:fd28a26cc477f092176a56",
     measurementId: "G-4JBB0DXSQH"
-  };
-
-  // Initialize Firebase
-  if(!firebase.app[0]) {
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  }
+  });
 
 
+  var db = firebaseConfig.firestore();
+
+  export { db };
 
   export default firebase;

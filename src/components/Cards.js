@@ -2,6 +2,7 @@ import React from 'react'
 import CardItem from './CardItem';
 import './style/Cards.css';
 import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 function Cards() {
@@ -13,20 +14,27 @@ function Cards() {
             <h1>ประเภทของคะแนนสำหรับยื่นผ่าน Exit Exam</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
+                        <Link
+                        to={{
+                            pathname: "/tips",
+                            state: {modal :true},
+                        }}
+                        >
                     <ul className="cards__items">
                         <CardItem 
                         src="images/KMITL.png"
                         text="ตั้งแต่ระดับ B1 ขึ้นไป "
                         label='KMITL - TEP'
-                        path='/'               
+                                
                         />
                         </ul>
+                        </Link>
                     <ul className="cards__items">
                         <CardItem 
                         src="images/IELTS-4.png"
                         text="ตั้งแต่ระดับ Band 4 ขึ้นไป"
                         label='IELTS'
-                        path='/'               
+                        path='/ielts'               
                         />
                         <CardItem 
                         src="images/TOEFL itp-2.jpg"

@@ -1,11 +1,13 @@
 import React from 'react'
 
 function Tips() {
-    return (
-        <div>
-            Tips and Tricks
-        </div>
-    )
+  return (
+    <div> 
+      <br />
+      
+      <p align="center">Guten,Tag</p>
+    </div>
+  )
 }
 
 export default Tips

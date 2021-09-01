@@ -5,8 +5,8 @@ import './style/HeroSection.css';
 import './style/Button.css';
 import Tips from './pages/Tips';
 import Cards from './Cards';
-import Typewriter from 'typewriter-effect'
-
+import Typewriter from 'typewriter-effect';
+import { HashLink as Link } from 'react-router-hash-link';
 
 
 function HeroSection() {
@@ -38,13 +38,14 @@ function HeroSection() {
             </div>
             <div className='hero-btns'>
             <br />
+            <Link smooth to='/#Cards'>
             <Button
             className='btns'
             buttonStyle='btn--primary'
             buttonSize='btn--large'
             > GET STARTED <i class="fas fa-play-circle"></i>
             </Button>
-         
+            </Link>
             </div>  
         </div>  
         </div>
