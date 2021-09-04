@@ -49,7 +49,7 @@ buttonLayout: {
 }));
    
 function getSteps() {
-  return ['ข้อมูลส่วนตัว', 'อัพโหลดไฟล์คะแนน'];
+  return ['ข้อมูลส่วนตัว',];
 }
 
 export default function StepperForm() {
@@ -105,39 +105,12 @@ export default function StepperForm() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <br/>
-            <br/>
-            <br/>
-            <Typography>อัพโหลดข้อมูลนักศึกษาและไฟล์เรียบร้อย</Typography>
-            <Button onClick={handleReset}>Reset</Button>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        
           </div>
         ) : (
           <div className={classes.root}>
             <div className={classes.instructions}>{getStepContent(activeStep)}</div>
             <div className={classes.buttonLayout}>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-                variant="outlined"
-              >
-                Back
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleNext} >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
+
             </div>
           </div>
         )}
@@ -145,7 +118,3 @@ export default function StepperForm() {
     </div>
   );
         }
-
-
-
-

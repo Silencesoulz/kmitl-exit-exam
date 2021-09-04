@@ -1,143 +1,112 @@
-import React, { useMemo, useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
+import React, { useCallback, useState } from 'react'
+import { useDropzone } from 'react-dropzone'
+import {
+  Flex,
+  Text,
+  Spinner,
+  Alert,
+  AlertIcon,
+  AlertDescription,
+  Progress,
+} from '@chakra-ui/react'
 
-const baseStyle = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: "20px",
-  borderWidth: 2,
-  borderRadius: 2,
-  borderColor: "#eeeeee",
-  borderStyle: "dashed",
-  backgroundColor: "#fafafa",
-  color: "#bdbdbd",
-  outline: "none",
-  transition: "border .24s ease-in-out"
-};
+import { uploadFromBlobAsync } from '../Storage'
 
-const activeStyle = {
-  borderColor: "#2196f3"
-};
+function UploadFile() {
 
-const acceptStyle = {
-  borderColor: "#337DFF"
-};
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [message, setMessage] = useState(null)
+  const [fileshowname, setFileshowname] = useState(null)
+  const [picture, setPicture] = useState(null)
 
-const rejectStyle = {
-  borderColor: "#ff1744"
-};
+  const onDrop = useCallback(async (acceptedFiles) => {
+    const file = acceptedFiles?.[0]
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16
-};
-
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: "auto",
-  height: 200,
-  padding: 4,
-  boxSizing: "border-box"
-};
-
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden"
-};
-
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%",
-};
-
-export default function UploadFile(props) {
-  const [files, setFiles] = useState([]);
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-    acceptedFiles,
-  } = useDropzone({
-    accept: "image/jpeg, image/png", maxFiles:1,
-    onDrop: acceptedFiles => {
-      setFiles(
-        acceptedFiles.map(file =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file)
-          })
-        )
-      );
+    if (!file) {
+      return
     }
-  });
 
-  const style = useMemo(
-    () => ({
-      ...baseStyle,
-      ...(isDragActive ? activeStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {})
-    }),
-    [isDragActive, isDragReject]
-  );
+    setIsLoading(true)
+    setError(null)
+    setMessage(null)
+    setFileshowname(null)
+    
 
-  const thumbs = files.map(file => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
-      </div>
-    </div>
-  ));
+    try {
+      await uploadFromBlobAsync({
+        blobUrl: URL.createObjectURL(file),
+        name: `${file.name}_${Date.now()}`,
+        
+      })
+    } catch (e) {
+      setIsLoading(false)
+      setError(e.message)
+      return
+    }
 
-  useEffect(
-    () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach(file => URL.revokeObjectURL(file.preview));
-    },
-    [files]
-  );
+    setIsLoading(false)
+    setMessage('อัพโหลดรูปภาพสำเร็จ') 
+    setFileshowname(`${file.name}`)
+    
 
-  const filepath = acceptedFiles.map(file => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
+  },[])
+
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
     <div className="container">
         <p>ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
         <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
         <br/>
-      <div {...getRootProps({ style })}>
+      <Flex
+        bg="#dadada"
+        w="auto"
+        h={220}
+        justify="center"
+        align="center"
+        p={50}
+        m={2}
+        borderRadius={15}
+        textAlign="center"
+        {...getRootProps()}
+      >
         <input {...getInputProps()} />
-        <br/>
-        <p>Drag 'n' drop your score files here, or click to select files</p>
-        <em>
-            (Only *.jpeg and *.png images will be accepted)
-        </em>
-        <br/>
-      </div>
-      <br/> 
-      <aside>
-        <h5>Uploaded Files</h5>
-        <p>{filepath}</p>
-      </aside>
+        {isLoading ? (
+          <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+          />
+        ) : isDragActive ? (
+          <Text>Drop the files here...</Text>
+        ) : (
+          <Text>อัพโหลดไฟล์รูปภาพผลการสอบของนักศึกษา</Text>
+        )}
+      </Flex>
       <br/>
-      <aside style={thumbsContainer}>{thumbs}</aside>
+      <Text>Filename : {fileshowname}</Text>
+ 
       <br/>
-      <br/>
+      {(error || message) && (
+          <Alert
+          status={error ? 'error' : 'success'}
+          variant="subtle"
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+          height="50px"
+          width="auto"
+        >
+          <AlertIcon />
+          <AlertDescription>{error || message}</AlertDescription>
+        </Alert>
+      )}
     </div>
-    
-  );
+  )
 }
+
+export default UploadFile

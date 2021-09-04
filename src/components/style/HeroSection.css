@@ -41,7 +41,7 @@ video {
 
 
 .hero-container > h1 {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0px);
   color: #fff;
   font-size: 100px;
   margin-top: -100px;
@@ -51,7 +51,6 @@ video {
 .hero-container > p {
   text-decoration: underline;
   font-style: oblique;
-  backdrop-filter: blur(5px);
   margin-top: 8px;
   color: rgb(235, 235, 235);
   font-size: 38px;
