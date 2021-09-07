@@ -14,38 +14,32 @@ function Cards() {
             <h1>ประเภทของคะแนนสำหรับยื่นผ่าน Exit Exam</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
-                        <Link
-                        to={{
-                            pathname: "/tips",
-                            state: {modal :true},
-                        }}
-                        >
+                    
                     <ul className="cards__items">
                         <CardItem 
                         src="images/KMITL.png"
                         text="ตั้งแต่ระดับ B1 ขึ้นไป "
                         label='KMITL - TEP'
-                                
                         />
                         </ul>
-                        </Link>
+                      
                     <ul className="cards__items">
                         <CardItem 
                         src="images/IELTS-4.png"
                         text="ตั้งแต่ระดับ Band 4 ขึ้นไป"
                         label='IELTS'
-                        path='/ielts'               
+                        path='/'               
                         />
                         <CardItem 
                         src="images/TOEFL itp-2.jpg"
                         text="ตั้งแต่ 450 คะแนนขึ้นไป "
-                        label='TOEFL (IPT)'
+                        label='TOEFL (ITP)'
                         path='/'               
                         />
                         <CardItem 
                         src="images/TOEFL ibt.jpg"
                         text="ตั้งแต่ 45 คะแนนขึ้นไป"
-                        label='TOEFL (IBT)'
+                        label='TOEFL (iBT)'
                         path='/'               
                         />
                     </ul>

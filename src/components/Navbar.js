@@ -5,7 +5,8 @@ import './style/Navbar.css';
 import { auth, signInWithGoogle } from '../config/firebase-config';
 import firebase from '../config/firebase-config';
 import 'firebase/auth';
-import SendScore from './pages/SendScore';
+
+
 
 
 function Navbar() {

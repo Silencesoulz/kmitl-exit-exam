@@ -13,6 +13,7 @@ import Information from './Information'
 import UploadFile from './UploadFile'
 import { useForm } from 'react-hook-form'
 
+
 // // function SendScore() {
 // //   const [user, setUser] = useState(null);
 // //   useEffect(() => {
@@ -48,6 +49,8 @@ buttonLayout: {
 }
 }));
    
+
+
 function getSteps() {
   return ['ข้อมูลส่วนตัว',];
 }
@@ -83,7 +86,7 @@ export default function StepperForm() {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <Information />;
+        return <Information formProps={informationForm} />;
       case 1:
         return <UploadFile/>;
       default:
