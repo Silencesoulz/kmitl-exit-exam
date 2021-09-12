@@ -76,6 +76,7 @@ export default function Information(props) {
             scoretype: scoretype,
             level: level,
             timestamp: timestamp,
+            
         })
             .then(() => {
                 alert("Message has been submitted")
@@ -235,7 +236,7 @@ export default function Information(props) {
                                         <option value='4-6'>4-6</option>
                                         <option value='7-9'>7-9</option>
                                     </optgroup>
-                                    <optgroup label="TOEFL(ITP)">
+                                    <optgroup label="TOEFL(IPT)">
                                         <option value='450-496'>450-496</option>
                                         <option value='487-546'>487-546</option>
                                         <option value='547-588'>547-589</option>
@@ -268,7 +269,9 @@ export default function Information(props) {
                         </Grid>
                     </Grid>
                     <br />
-                    <UploadFile />
+                    <UploadFile
+                    required 
+                    />
                     <br />
                     <br />
 

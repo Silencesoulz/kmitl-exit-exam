@@ -23,15 +23,15 @@ video {
 .hero-background {
   background: url('/src/BG-2.JPG') center center/cover
   no-repeat;
-  height: 100%;
+  height:100%;
   opacity: 1;
-  
+
 }
 
 .type-writer{
   text-decoration: underline;
   font-style: oblique;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2px);
   margin-top: 8px;
   color: rgb(235, 235, 235);
   font-size: 38px;
@@ -41,7 +41,7 @@ video {
 
 
 .hero-container > h1 {
-  backdrop-filter: blur(0px);
+  
   color: #fff;
   font-size: 100px;
   margin-top: -100px;

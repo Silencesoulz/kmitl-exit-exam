@@ -12,7 +12,7 @@ import {
 
 import { uploadFromBlobAsync } from '../Storage'
 
-function UploadFile() {
+function UploadFile(props) {
 
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -31,13 +31,13 @@ function UploadFile() {
     setError(null)
     setMessage(null)
     setFileshowname(null)
-    
+    setPicture(null)
 
     try {
       await uploadFromBlobAsync({
         blobUrl: URL.createObjectURL(file),
         name: `${file.name}_${Date.now()}`,
-        
+        picture: URL.createObjectURL(file),
       })
     } catch (e) {
       setIsLoading(false)
@@ -48,10 +48,9 @@ function UploadFile() {
     setIsLoading(false)
     setMessage('อัพโหลดรูปภาพสำเร็จ') 
     setFileshowname(`${file.name}`)
-    
+    setPicture(`${file.picture}`)
 
   },[])
-
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
@@ -89,7 +88,9 @@ function UploadFile() {
       </Flex>
       <br/>
       <Text>Filename : {fileshowname}</Text>
- 
+      <img 
+      src={picture}
+      />
       <br/>
       {(error || message) && (
           <Alert
