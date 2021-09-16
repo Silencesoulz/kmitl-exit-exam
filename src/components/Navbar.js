@@ -97,7 +97,7 @@ function Navbar() {
               </Link>
             </li>
             {user ? (<li className='nav-item'>
-              <Link to='/sendscore'
+              <Link to='/form'
                 className='nav-links'
                 onClick={closeMobileMenu}>
                 ยื่นคะแนน

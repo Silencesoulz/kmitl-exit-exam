@@ -4,16 +4,15 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import './App.css';
 import Home from './components/pages/Home';
 import Tips from './components/pages/Tips';
-import Login from './components/pages/Login';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import Access from './components/Access';
 import Ielts from './components/pages/Ielts';
 import Form from './components/pages/Form';
+import firebase from './config/firebase-config';
+import "firebase/auth";
 
 
 function App() {
-  
+
   return (
   <>
   <Router>
@@ -21,13 +20,11 @@ function App() {
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/tips' component={Tips} />
-        <Route path='/sendscore' component={Form} />
-        <Route path='/login' component={Login} />
+        <Route path="/form" component={Form} />
         <Route path='/access' component={Access} />
         <Route path='/ielts' component={Ielts} />
       </Switch> 
   </Router>
-      
   </>
   );
   }

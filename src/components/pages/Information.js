@@ -7,11 +7,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import '../style/Form.css';
-import { db } from '../../config/firebase-config';
+import { db, storage } from '../../config/firebase-config';
 import firebase from '../../config/firebase-config';
 import 'firebase/auth'
-import UploadFile from './UploadFile';
 import { Button } from '@material-ui/core';
+import { Progress } from "@chakra-ui/react"
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -52,10 +53,8 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function Information(props) {
+export default function Information() {
     
-    
-
     const classes = useStyles();
     const [name, setName] = useState("");
     const [lastname, setLastName] = useState("");
@@ -64,22 +63,62 @@ export default function Information(props) {
     const [scoretype, setScoretype] = useState("");
     const [level, setLevel] = useState("");
     const timestamp = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
+    const checkstatus = false;
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState("");
+    const [progress, setProgress] = useState(0);
+
+    const handleChange = (e) => {
+        if(e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
+    };
+
+    const handleUpload = () => {
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setProgress(progress);
+            },
+            error => {
+                alert("กรุณาเลือกไฟล์สำหรับอัพโหลด")
+                console.log(error);
+            },
+            () => {
+                storage
+                .ref("images")
+                .child(image.name)
+                .getDownloadURL()
+                .then(url => {
+                    //console.log(url);
+                    setUrl(url)
+                });
+            }
+        )
+    };
+   
+    console.log("image: ", image);
 
     const onSubmit = (e) => {
         e.preventDefault();
-
+        
         db.collection('students').add({
-            name: name,
-            lastname: lastname,
-            studentid: studentid,
-            dep: dep,
-            scoretype: scoretype,
-            level: level,
-            timestamp: timestamp,
-            
+            Name: name,
+            Lastname: lastname,
+            Studentid: studentid,
+            Dep: dep,
+            Scoretype: scoretype,
+            Level: level,
+            Timestamp: timestamp,
+            Checkstatus: checkstatus,
+            ImgURL: url,
         })
             .then(() => {
-                alert("Message has been submitted")
+                alert("ระบบได้ทำการส่งคะแนนของท่านเรียบร้อยแล้ว")
                 window.location.href = '/';
             })
             .catch((error) => {
@@ -93,13 +132,13 @@ export default function Information(props) {
         setDep("");
         setScoretype("");
         setLevel("");
-    };
+       
+        };
 
-
-
+    
     return (
         <Fragment>
-
+            
             <form className="form" onSubmit={onSubmit} >
             
                 <div className={classes.root}>
@@ -215,6 +254,7 @@ export default function Information(props) {
                             <FormControl className={classes.formControl}>
                                 <InputLabel id="">&nbsp;&nbsp;&nbsp;ระดับคะแนน</InputLabel>
                                 <Select
+                                    
                                     name="level"
                                     native defaultValue=""
                                     labelId=""
@@ -269,23 +309,46 @@ export default function Information(props) {
                         </Grid>
                     </Grid>
                     <br />
-                    <UploadFile
-                    required 
+                
+                    <div class="form-group">
+                    <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
+                    <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
+                    <br/>
+                    <label>
+                    <i class="fas fa-file-upload"></i>&nbsp;เลือกไฟล์หลักฐานการสอบ
+                    </label>
+                    <Progress value={progress} size="md" colorScheme="green" hasStripe isAnimated/>
+                    <input 
+                    class="form-control form-control-sm"
+                    type="file" 
+                    onChange={handleChange} 
+                    required
                     />
+                    <br/>
+                    <Button
+                        className="form-control"
+                        id="contained-button-file"
+                        variant="contained"
+                        component="span"
+                        type="submit"
+                        onClick={handleUpload}
+                        >
+                        อัพโหลดไฟล์
+                    </Button>
+                    
                     <br />
+                    </div>
                     <br />
-
                     <Button
                         variant="contained"
                         color="primary"
                         type="submit"
                         >
-                        SUBMIT
+                        ส่งแบบฟอร์ม
                     </Button>
-
                 </div>
             </form>
-           
+      
         </Fragment>
     )
 }
