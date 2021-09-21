@@ -42,20 +42,28 @@
     
     }
   }
- 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 961px) {
     .navbar-logo {
       position: relative;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1023px) {
     .navbar-logo {
       position: relative;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      margin-left: -10px;
+    }
+  }
+
+  @media screen and (max-width: 2800px) {
+    .navbar-logo {
+      
+      font-size: 22px;
       margin-top: 10px;
-      margin-left: -15px;
+      
     }
   }
 

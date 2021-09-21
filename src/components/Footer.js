@@ -1,6 +1,5 @@
 import React from 'react';
 import './style/Footer.css'
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 
@@ -25,7 +24,7 @@ function Footer() {
           <div class='footer-link-items'>
             <h2>Contact Us</h2>
             <a href="tel:+66-02-329-8220" className='footer-thai'> 
-            <i class="fas fa-phone-square-alt"></i> : 02 329 8220
+            <i class="fas fa-phone-square-alt"></i> : 02 329 8321
             </a>
             <a href = "mailto: inter@kmitl.ac.th" className='footer-thai'>
             <i class="fas fa-envelope"></i> : inter@kmitl.ac.th

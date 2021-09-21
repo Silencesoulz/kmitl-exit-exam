@@ -3,7 +3,7 @@ import '../../App.css'
 import HeroSection from '../HeroSection'
 import Cards from '../Cards';
 import Footer from '../Footer';
-import Tips from './Tips';
+import Request from '../Request';
 import ScrollToTop from '../ScrollToTop';
 
 
@@ -12,8 +12,9 @@ function Home () {
         <>
             <HeroSection />
             <Cards />
+            <Request />
             <Footer />
-            <ScrollToTop />
+            <ScrollToTop />          
         </>
     );
 }

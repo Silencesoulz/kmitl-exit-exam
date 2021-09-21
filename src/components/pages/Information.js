@@ -6,12 +6,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { FormHelperText, NativeSelect } from '@material-ui/core';
 import '../style/Form.css';
 import { db, storage } from '../../config/firebase-config';
 import firebase from '../../config/firebase-config';
 import 'firebase/auth'
 import { Button } from '@material-ui/core';
-import { Progress } from "@chakra-ui/react"
+import { Progress, Alert, AlertIcon } from "@chakra-ui/react"
+
 
 
 
@@ -54,8 +56,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Information() {
-    
+
     const classes = useStyles();
+    const [title, setTitle] = useState("");
     const [name, setName] = useState("");
     const [lastname, setLastName] = useState("");
     const [studentid, setStudentID] = useState("");
@@ -68,45 +71,50 @@ export default function Information() {
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);
 
+
     const handleChange = (e) => {
-        if(e.target.files[0]) {
+        if (e.target.files[0]) {
             setImage(e.target.files[0]);
         }
     };
 
-    const handleUpload = () => {
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+
+    const handleUpload = (e) => {
+        const uploadTask = storage.ref(`images/${scoretype}/${dep}/${image.name}`).put(image);
         uploadTask.on(
             "state_changed",
             snapshot => {
                 const progress = Math.round(
                     (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                 );
+
                 setProgress(progress);
+
             },
             error => {
-                alert("กรุณาเลือกไฟล์สำหรับอัพโหลด")
+                alert("กรุณาล็อกอินด้วยอีเมล์สถาบันเพื่ออัพโหลดรูป")
                 console.log(error);
             },
             () => {
                 storage
-                .ref("images")
-                .child(image.name)
-                .getDownloadURL()
-                .then(url => {
-                    //console.log(url);
-                    setUrl(url)
-                });
+                    .ref(`images/${scoretype}/${dep}`)
+                    .child(image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        console.log(url);
+                        setUrl(url)
+                    });
             }
         )
     };
-   
+
     console.log("image: ", image);
 
     const onSubmit = (e) => {
         e.preventDefault();
-        
+
         db.collection('students').add({
+            Title: title,
             Name: name,
             Lastname: lastname,
             Studentid: studentid,
@@ -122,25 +130,25 @@ export default function Information() {
                 window.location.href = '/';
             })
             .catch((error) => {
-                alert(error.message);
-                name=('');
-            });
+                alert("กรุณาล็อกอินด้วยอีเมล์สถาบันเพื่อส่งคะแนนของท่าน");
 
+            });
+        setTitle("");
         setName("");
         setLastName("");
         setStudentID("");
         setDep("");
         setScoretype("");
         setLevel("");
-       
-        };
 
-    
+    };
+
+
     return (
         <Fragment>
-            
+
             <form className="form" onSubmit={onSubmit} >
-            
+                <br />
                 <div className={classes.root}>
                     <Grid container
                         direction="row"
@@ -148,11 +156,28 @@ export default function Information() {
                         alignItems="center"
                         spacing={2}
                     >
-                       
-                        
-                        <Grid item md={12} xs={12}> 
+                        {/* <Grid item md={12} xs={12}> */}
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="">&nbsp;&nbsp;&nbsp;คำนำหน้าชื่อ</InputLabel>
+                            <Select
+                                variant="standard"
+                                name="title"
+                                margin="dense"
+                                labelId=""
+                                id=""
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                required
+                            >
+                                <MenuItem value='นาย'>นาย</MenuItem>
+                                <MenuItem value='นางสาว'>นางสาว</MenuItem>
+                                <MenuItem value='นาง'>นาง</MenuItem>
+                            </Select>
+                        </FormControl>
+                        {/* </Grid>     */}
+                        <Grid item md={12} xs={12}>
                             <TextField
-                                
+
                                 name="name"
                                 id="name"
                                 label="ชื่อ"
@@ -164,7 +189,7 @@ export default function Information() {
                                 onChange={(e) => setName(e.target.value)}
                                 required
                             />
-                        
+
                         </Grid>
 
                         <Grid item md={12} xs={12}>
@@ -239,6 +264,7 @@ export default function Information() {
                                     onChange={(e => setScoretype(e.target.value))}
                                     required
                                 >
+                                    <MenuItem value='KMITL EXIT EXAM'>KMITL EXIT EXAM</MenuItem>
                                     <MenuItem value='KMITL-TEP'>KMITL-TEP</MenuItem>
                                     <MenuItem value='IELTS'>IELTS</MenuItem>
                                     <MenuItem value='TOEFL(IPT)'>TOEFL(IPT)</MenuItem>
@@ -250,105 +276,111 @@ export default function Information() {
                                 </Select>
                             </FormControl>
                         </Grid>
+
                         <Grid item md={12} xs={12}>
                             <FormControl className={classes.formControl}>
-                                <InputLabel id="">&nbsp;&nbsp;&nbsp;ระดับคะแนน</InputLabel>
-                                <Select
-                                    
+                                <InputLabel id=""></InputLabel>
+                                <TextField
                                     name="level"
-                                    native defaultValue=""
-                                    labelId=""
-                                    id="grouped-native-select"
+                                    id="level"
+                                    label="ระดับคะแนน"
                                     variant="filled"
+                                    placeholder="ระดับคะแนน"
                                     value={level}
                                     onChange={(e => setLevel(e.target.value))}
                                     required
                                 >
-
-                                    <option aria-label="None" value="" />
-                                    <optgroup label="KMITL-TEP">
-                                        <option value='B1'>B1</option>
-                                        <option value='B2'>B2</option>
-                                        <option value='C1'>C1</option>
-                                        <option value='C2'>C2</option>
-                                    </optgroup>
-                                    <optgroup label="IELTS">
-                                        <option value='4-6'>4-6</option>
-                                        <option value='7-9'>7-9</option>
-                                    </optgroup>
-                                    <optgroup label="TOEFL(IPT)">
-                                        <option value='450-496'>450-496</option>
-                                        <option value='487-546'>487-546</option>
-                                        <option value='547-588'>547-589</option>
-                                        <option value='590-677'>590-677</option>
-                                    </optgroup>
-                                    <optgroup label="TOEFL(iBT)">
-                                        <option value='45-59'>45-59</option>
-                                        <option value='60-78'>60-78</option>
-                                        <option value='79-95'>79-95</option>
-                                        <option value='96-120'>96-120</option>
-                                    </optgroup>
-                                    <optgroup label="TOEIC">
-                                        <option value='500-650'>500-650</option>
-                                        <option value='660-780'>651-780</option>
-                                        <option value='790-880'>781-880</option>
-                                        <option value='890-990'>881-990</option>
-                                    </optgroup>
-                                    <optgroup label="CU-TEP">
-                                        <option value='45-69'>45-69</option>
-                                        <option value='70-98'>70-98</option>
-                                        <option value='99-120'>99-120</option>
-                                    </optgroup>
-                                    <optgroup label="TU-GET">
-                                        <option value='500-650'>500-650</option>
-                                        <option value='651-750'>651-750</option>
-                                        <option value='851-1000'>851-1000</option>
-                                    </optgroup>
-                                </Select>
+                                </TextField>
+                                <FormHelperText>เช่น B1 หรือตัวเลขคะแนนที่ได้</FormHelperText>
                             </FormControl>
                         </Grid>
                     </Grid>
+
                     <br />
-                
+
                     <div class="form-group">
-                    <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
-                    <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
-                    <br/>
-                    <label>
-                    <i class="fas fa-file-upload"></i>&nbsp;เลือกไฟล์หลักฐานการสอบ
-                    </label>
-                    <Progress value={progress} size="md" colorScheme="green" hasStripe isAnimated/>
-                    <input 
-                    class="form-control form-control-sm"
-                    type="file" 
-                    onChange={handleChange} 
-                    required
-                    />
-                    <br/>
-                    <Button
-                        className="form-control"
-                        id="contained-button-file"
-                        variant="contained"
-                        component="span"
-                        type="submit"
-                        onClick={handleUpload}
-                        >
-                        อัพโหลดไฟล์
-                    </Button>
-                    
-                    <br />
+                        <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
+                        <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
+                        <br />
+                        <label>
+                            <i class="fas fa-file-upload"></i>&nbsp;เลือกไฟล์หลักฐานการสอบ
+                        </label>
+
+                        <Progress value={progress} size="md" colorScheme="green" hasStripe isAnimated />
+
+                        {progress ? (
+                            <Alert
+                                status="success"
+                                variant="left-accent"
+                                value={progress}>
+                                <AlertIcon />
+                                อัพโหลดไฟล์สำเร็จ
+                            </Alert>
+                        ) : (
+                            <div />
+                        )}
+                        <input
+                            class="form-control form-control-sm"
+                            type="file"
+                            onChange={handleChange}
+                            required
+                        />
+                        <br />
+
+                        {image ? (
+                            <Button
+                                color=""
+                                className="form-control"
+                                id="contained-button-file"
+                                variant="contained"
+                                component="span"
+                                type="submit"
+                                onClick={handleUpload}
+                                required
+                            >
+                                กดเพื่ออัพโหลดไฟล์
+                            </Button>
+                        ) : (
+                            <Button
+                                className="form-control"
+                                id="contained-button-file"
+                                variant="contained"
+                                component="span"
+                                type="submit"
+                                onClick={handleUpload}
+                                disabled
+                            >
+                                อัพโหลดไฟล์
+                            </Button>
+                        )}
+
+                        <br />
+                        <br />
+                        <img src={url} alt="" />
+                        <br />
                     </div>
                     <br />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
+                    {url ? (
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            type="submit"
                         >
-                        ส่งแบบฟอร์ม
-                    </Button>
+                            ส่งแบบฟอร์ม
+                        </Button>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            type="submit"
+                            disabled
+                        >
+                            ส่งแบบฟอร์ม
+                        </Button>
+                    )}
                 </div>
             </form>
-      
+
         </Fragment>
     )
 }

@@ -1,9 +1,6 @@
 import React from 'react'
 import CardItem from './CardItem';
 import './style/Cards.css';
-import { Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
 
 function Cards() {
     return (
@@ -12,14 +9,15 @@ function Cards() {
             <br />
             <br />
             <h1>ประเภทของคะแนนสำหรับยื่นผ่าน Exit Exam</h1>
+            <br />
             <div className="cards__container">
                 <div className="cards__wrapper">
                     
                     <ul className="cards__items">
                         <CardItem 
                         src="images/KMITL.png"
-                        text="ตั้งแต่ระดับ B1 ขึ้นไป "
-                        label='KMITL - TEP'
+                        text="ตั้งแต่ 32 คะแนนขึ้นไป "
+                        label='KMITL EXIT EXAM'
                         />
                         </ul>
                       
@@ -62,10 +60,21 @@ function Cards() {
                         label='TU - GET'
                         path='/'
                         />
+                       <CardItem 
+                        src="images/KMITL.png"
+                        text="ตั้งแต่ระดับ B1 ขึ้นไป "
+                        label='KMITL - TEP'
+                        />
+                        
                         </ul>
                 </div>
             </div> 
+            <hr className="editbord">
+            
+            </hr>
+
         </div>
+       
     </section>
     )
 }
