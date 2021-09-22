@@ -1,103 +1,108 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
-import SecondTips from './SecondTips'
+import '../style/Tips.css'
 
 function Tips() {
-  return (    
-<Carousel variant='dark'>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page1.png"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page2.png"
-      alt="Second slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page3.png"
-      alt="Third slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  {/* //waiting for nextpage */}
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page4.png"
-      alt="Fourth slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page5.png"
-      alt="Fifth slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page6.png"
-      alt="Sixth slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page7.png"
-      alt="Seventh slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="images/Page8.png"
-      alt="Eighth slide"
-    />
-    <Carousel.Caption>
-      <h5></h5>
-      <p></p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
 
+    const [index, setIndex] = useState(0);
+  
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
+
+  return (
+    <div className="Tips">
+    <Carousel 
+    activeIndex={index} 
+    onSelect={handleSelect}
+    variant="dark"
+    nextLabel=""
+    prevLabel=""
+    >
+      <Carousel.Item>
+        <img
+          className="Tips"
+          src="images/Page1.png"
+          alt="First slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page2.png"
+          alt="Second slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page3.png"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page4.png"
+          alt="Fourth slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page5.png"
+          alt="Fifth slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page6.png"
+          alt="Sixth slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page7.png"
+          alt="Seventh slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page8.png"
+          alt="Eighth slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page9.png"
+          alt="Nineth slide"
+        />
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="images/Page10.png"
+          alt="Tenth slide"
+        />
+      </Carousel.Item>
+    </Carousel>
+    </div>
+  
   )
- 
+
 }
 
 export default Tips

@@ -3,8 +3,6 @@ import '../App.css';
 import { Button } from './Button';
 import './style/HeroSection.css';
 import './style/Button.css';
-import Tips from './pages/Tips';
-import Cards from './Cards';
 import Typewriter from 'typewriter-effect';
 import { HashLink as Link } from 'react-router-hash-link';
 

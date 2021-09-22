@@ -1,0 +1,63 @@
+.textfortips {
+    font-family: 'Mitr', sans-serif;
+}
+
+.textfortips > h1 {
+    padding-top: 50px;
+    font-size: 55px;
+    justify-content: center;
+    text-align:center;
+    font-family: 'Mitr', sans-serif;
+}
+
+.textfortips > p {
+    font-size: 25px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 10px;
+    text-align:center;
+    font-family: 'Mitr', sans-serif;
+}
+
+.hrposition {
+    width: 100% ;
+    position: relative;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .textfortips > h1 {
+        padding-top: 25px;
+        font-size: 35px;
+        justify-content: center;
+        text-align:center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .textfortips > p {
+        font-size: 18px;
+        padding-left: 50px;
+        padding-right: 45px;
+        margin-top: 10px;
+        text-align:left;
+  }
+}
+
+@media screen and (min-width: 600px) {
+    .textfortips > h1 {
+        padding-top: 25px;
+        font-size: 45px;
+        text-align:center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+    .textfortips > p {
+        font-size: 21px;
+        padding-left: 50px;
+        padding-right: 45px;
+        margin-top: 10px;
+        text-align:center;
+  }
+}

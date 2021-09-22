@@ -42,7 +42,15 @@
     
     }
   }
-  @media screen and (min-width: 961px) {
+  @media only screen and (max-width: 600px) {
+    .navbar-logo {
+      
+      font-size: 15px;
+    
+    }
+  }
+
+  @media screen and (min-width: 600px) {
     .navbar-logo {
       position: relative;
       font-size: 1.2rem;
@@ -50,11 +58,13 @@
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (min-width: 992px) {
     .navbar-logo {
-      position: relative;
-      font-size: 1.2rem;
-      margin-left: -10px;
+      position:relative;
+      font-size: 18px;
+      margin-left: 15px;
+      padding-right:5px ;
+      padding-bottom: -5px;
     }
   }
 
@@ -64,6 +74,7 @@
       font-size: 22px;
       margin-top: 10px;
       
+      padding-left: 10px;
     }
   }
 

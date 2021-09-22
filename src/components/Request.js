@@ -10,6 +10,7 @@ function Request() {
             class="btn btn-danger button"
             href={'//www.google.com'}
             target="_blank"
+            rel="noreferrer"
             >กดที่นี่เพื่อยื่นคำร้อง</a></p>         
             <div>
                 <br/>

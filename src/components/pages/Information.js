@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useMemo, useEffect, Component } from 'react'
+import React, { Fragment, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -6,15 +6,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { FormHelperText, NativeSelect } from '@material-ui/core';
+import { FormHelperText} from '@material-ui/core';
 import '../style/Form.css';
 import { db, storage } from '../../config/firebase-config';
 import firebase from '../../config/firebase-config';
 import 'firebase/auth'
 import { Button } from '@material-ui/core';
 import { Progress, Alert, AlertIcon } from "@chakra-ui/react"
-
-
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,7 +43,6 @@ const useStyles = makeStyles(theme => ({
     },
 
     formControl: {
-        margin: theme.spacing(1),
         minWidth: 198,
         margin: '-1rem 0 2rem 0'
     },
@@ -70,7 +67,7 @@ export default function Information() {
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);
-
+   
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -92,8 +89,9 @@ export default function Information() {
 
             },
             error => {
-                alert("กรุณาล็อกอินด้วยอีเมล์สถาบันเพื่ออัพโหลดรูป")
+                alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB")
                 console.log(error);
+                
             },
             () => {
                 storage
@@ -177,14 +175,12 @@ export default function Information() {
                         {/* </Grid>     */}
                         <Grid item md={12} xs={12}>
                             <TextField
-
                                 name="name"
                                 id="name"
                                 label="ชื่อ"
                                 margin="normal"
                                 variant="filled"
                                 placeholder="ชื่อนักศึกษา"
-                                name="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
@@ -317,8 +313,9 @@ export default function Information() {
                                 อัพโหลดไฟล์สำเร็จ
                             </Alert>
                         ) : (
-                            <div />
+                           <div/>
                         )}
+                    
                         <input
                             class="form-control form-control-sm"
                             type="file"
@@ -353,7 +350,7 @@ export default function Information() {
                                 อัพโหลดไฟล์
                             </Button>
                         )}
-
+                         
                         <br />
                         <br />
                         <img src={url} alt="" />

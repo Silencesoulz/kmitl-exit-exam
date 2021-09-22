@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './style/Navbar.css';
-import { auth, signInWithGoogle } from '../config/firebase-config';
 import firebase from '../config/firebase-config';
 import 'firebase/auth';
 
@@ -12,7 +11,7 @@ import 'firebase/auth';
 function Navbar() {
 
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true)
+  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -32,9 +31,11 @@ function Navbar() {
   //Login and Signout
 
   var provider = new firebase.auth.GoogleAuthProvider();
- 
+  provider.setCustomParameters({
+    'hd': 'kmitl.ac.th'
+  })
+  
   const [user, setUser] = useState(null);
-
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -138,12 +139,13 @@ function Navbar() {
               </Link>
             </li>) : (
               <li className='nav-item'>
-                <Link to='/'
+                <Link to='/login'
                   className='nav-links-mobile'
                   onClick={closeMobileMenu}
-                  onClick={() => {
-                    signInWithGooglePopup()
-                  }}><i className='fas fa-sign-in-alt' /> Login
+                  // onClick={() => {
+                  //   signInWithGooglePopup()
+                  // }}
+                  ><i className='fas fa-sign-in-alt' /> Login
                 </Link>
               </li>
             )}
@@ -171,15 +173,15 @@ function Navbar() {
               {user} <i className='fas fa-sign-out-alt' />
             </Button>}
           </Link>) : (
-            <Link to='/'
+            <Link to='/login'
               className='btn-mobile'
             >
               {button && <Button
                 className='btn-mobile'
                 buttonStyle='btn--outline'
-                onClick={() => {
-                  signInWithGooglePopup()
-                }}
+                // onClick={() => {
+                //   signInWithGooglePopup()
+                // }}
               >
                 <i className='fas fa-sign-in-alt' /> Login
               </Button>}

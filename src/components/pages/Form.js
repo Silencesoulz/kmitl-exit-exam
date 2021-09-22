@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import SendScore from './SendScore'
 import '../style/Form.css'
-import Information from './Information';
+
 
 const useStyles = makeStyles(theme => ({
     
