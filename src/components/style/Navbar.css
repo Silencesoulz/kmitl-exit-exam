@@ -44,7 +44,7 @@
   }
   @media only screen and (max-width: 600px) {
     .navbar-logo {
-      
+      margin-left: -20px;
       font-size: 15px;
     
     }
@@ -54,7 +54,7 @@
     .navbar-logo {
       position: relative;
       font-size: 1.2rem;
-      
+      margin-left: -15px;
     }
   }
 
@@ -62,7 +62,7 @@
     .navbar-logo {
       position:relative;
       font-size: 18px;
-      margin-left: 15px;
+      margin-left: -10px;
       padding-right:5px ;
       padding-bottom: -5px;
     }

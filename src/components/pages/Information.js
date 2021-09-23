@@ -89,7 +89,7 @@ export default function Information() {
 
             },
             error => {
-                alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB")
+                alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
                 console.log(error);
                 
             },
@@ -297,6 +297,7 @@ export default function Information() {
                     <div class="form-group">
                         <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
                         <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
+                        <p className="remind">!!!ตรวจสอบชื่อไฟล์และเลือกไฟล์ให้ถูกต้องก่อนกดอัพโหลด!!!</p>
                         <br />
                         <label>
                             <i class="fas fa-file-upload"></i>&nbsp;เลือกไฟล์หลักฐานการสอบ
@@ -315,18 +316,32 @@ export default function Information() {
                         ) : (
                            <div/>
                         )}
-                    
+                        {url ? (
                         <input
                             class="form-control form-control-sm"
                             type="file"
                             onChange={handleChange}
+                            disabled
+                        > 
+                        </input>
+                        
+                        ) : (
+                            <input
+                            class="form-control form-control-sm"
+                            type="file"
+                            onChange={handleChange}
                             required
-                        />
-                        <br />
-
+                        > 
+                        </input>
+                        
+                        )}
+                        <br/>
                         {image ? (
                             <Button
-                                color=""
+                                style={{
+                                    backgroundColor:"#4CAF50",
+                                    color:"white"
+                                }}
                                 className="form-control"
                                 id="contained-button-file"
                                 variant="contained"

@@ -7,6 +7,7 @@
     font-size: 55px;
     justify-content: center;
     text-align:center;
+    word-spacing: -5px; 
     font-family: 'Mitr', sans-serif;
 }
 
@@ -15,7 +16,7 @@
     padding-left: 60px;
     padding-right: 60px;
     margin-top: 10px;
-    text-align:center;
+    text-align:left;
     font-family: 'Mitr', sans-serif;
 }
 
@@ -28,8 +29,9 @@
 @media screen and (max-width: 600px) {
     .textfortips > h1 {
         padding-top: 25px;
-        font-size: 35px;
+        font-size: 28px;
         justify-content: center;
+        word-spacing: -5px; 
         text-align:center;
   }
 }
@@ -37,8 +39,8 @@
 @media screen and (max-width: 600px) {
     .textfortips > p {
         font-size: 18px;
-        padding-left: 50px;
-        padding-right: 45px;
+        padding-left: 30px;
+        padding-right: 15px;
         margin-top: 10px;
         text-align:left;
   }
@@ -48,6 +50,7 @@
     .textfortips > h1 {
         padding-top: 25px;
         font-size: 45px;
+        word-spacing: -5px; 
         text-align:center;
   }
 }
@@ -58,6 +61,6 @@
         padding-left: 50px;
         padding-right: 45px;
         margin-top: 10px;
-        text-align:center;
+        text-align:left;
   }
 }

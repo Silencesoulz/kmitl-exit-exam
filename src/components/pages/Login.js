@@ -10,6 +10,7 @@ function Login() {
     
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({
+        prompt: 'select_account',
         'hd': 'kmitl.ac.th'
     })
     function signInWithGooglePopup() {
@@ -25,7 +26,7 @@ function Login() {
             var email = error.email;
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
-            console.log(`Errors occurred during sign in: 
+            console.log(`Errors occurred during sign in:
               ${errorCode}, ${errorMessage}, ${email}, ${credential}`)
           });
     

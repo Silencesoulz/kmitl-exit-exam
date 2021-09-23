@@ -5,7 +5,7 @@ function SecondTips() {
         <div className='textfortips'>
             <br/>
             <br/>
-            <h1>WHAT IS KMITL EXIT EXAM?</h1>
+            <h1>GET TO KNOW KMITL EXIT EXAM!</h1>
             <br/>
             <p>&nbsp;&nbsp;&nbsp;คือการสอบวัดความรู้ทักษะภาษาอังกฤษก่อนสำเร็จการศึกษา
             นักศึกษาวิศวกรรมศาสตร์ รหัส 60 เป็นต้นไป (ยกเว้นนักศึกษาหลักสูตรนานาชาติ)
