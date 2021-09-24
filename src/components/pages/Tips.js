@@ -4,24 +4,19 @@ import '../style/Tips.css'
 
 function Tips() {
 
-    const [index, setIndex] = useState(0);
-  
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    };
+
 
   return (
     <div className="Tips">
     <Carousel 
-    activeIndex={index} 
-    onSelect={handleSelect}
     variant="dark"
     nextLabel=""
     prevLabel=""
     >
+      
       <Carousel.Item>
         <img
-          className="Tips"
+          className="d-block w-100"
           src="images/Page1.png"
           alt="First slide"
         />

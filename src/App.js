@@ -9,6 +9,8 @@ import Ielts from './components/pages/Ielts';
 import Form from './components/pages/Form';
 import Login from './components/pages/Login';
 import "firebase/auth";
+import AdminApps from './components/pages/AdminApps';
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <Route path='/access' component={Access} />
         <Route path='/ielts' component={Ielts} />
         <Route path='/login' component={Login} />
+        <Route path='/adminlogin' component={AdminApps} />
       </Switch> 
   </Router>
   </>

@@ -1,10 +1,10 @@
-import React,{ useState, useEffect } from 'react'
+import React from 'react'
 import '../style/Login.css'
 import firebase from '../../config/firebase-config';
 import 'firebase/auth'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-
+import GoogleButton from 'react-google-button';
 
 function Login() {
     
@@ -33,19 +33,42 @@ function Login() {
       }
     
     return (
-        <div class="login-container">
-            <h1> สำหรับนักศึกษา </h1>
+        <section className="login">
+        <div className="loginContainer">
+            <h1 align="center" className="headerpos"> สำหรับนักศึกษาให้ล็อกอินด้วยอีเมล์สถาบัน </h1>
+            <p align="center" className="headerpos1">ยืนยันตัวตนด้วยบริการของ Google</p>
+            <p align="center" className="headerpos1">โดยใช้ account (gen2) ของสถาบันฯ</p>
+            <br/>
+            <div className="btn-center">
             <Link to='/'>
-            <Button
-            variant="primary"
+            <GoogleButton
             onClick={() => {
                   signInWithGooglePopup()
                 }}
                 >
-            Login with google
-            </Button>
+            Login with google EMAIL
+            </GoogleButton>
             </Link>
+            </div>
+            <br/>
+            <br/>
+            <div>
+              <hr/>
+              <br/>
+              <br/>
+            <h1 align="center" className="headerpossec">สำหรับเจ้าหน้าที่แอดมิน</h1>
+            <br/>
+            <Link to='/adminlogin'>
+              <Button
+              className="btn-center"
+              variant="primary"
+              >
+                เข้าสู่ระบบด้วย Username
+              </Button>
+            </Link>
+            </div>
         </div>
+        </section>
     )
 }
 
