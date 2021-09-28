@@ -88,7 +88,7 @@
   .hero {
     width: 100%;
     min-height: 100vh;
-    background: #FDE49C;
+    background: #FFC069;
   }
   
   .hero nav {
@@ -102,12 +102,13 @@
   
   .hero nav h2 {
     color: #fff;
+    font-size: 30px;
   }
   
   .hero nav button {
     width: 86px;
     padding: 8px 0;
-    background: #3a2b58;
+    background: #4A403A;
   }
   
   .adminheader {

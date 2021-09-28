@@ -3,19 +3,19 @@ import "../style/Login.css"
 import firebase from '../../config/firebase-config';
 import AdminDashboard from './AdminDashboard';
 import AdminLogin from './AdminLogin';
-import 'firebase/auth'
+
 
 const AdminApps = () => {
 
-    const [ user, setUser ] = useState('');
-    const [ email, setEmail ] = useState('');
+    const [ useradmin, setUserAdmin ] = useState('');
+    const [ emailadmin, setEmailAdmin ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ emailError, setEmailError ] = useState('');
     const [ passwordError, setPasswordError ] = useState('');
     const [ hasAccount, setHasAccount ] = useState(false);
-    
+
     const clearInputs = () => {
-        setEmail('');
+        setEmailAdmin('');
         setPassword('');
     }
 
@@ -29,17 +29,19 @@ const AdminApps = () => {
         clearErrors();
         firebase
         .auth()
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(emailadmin, password)
         .catch(err => {
             switch(err.code){
                 case "auth/invalid-email":
-                case "auth/user-disabled":
-                case "auth/user-not-found":
+                case "auth/useradmin-disabled":
+                case "auth/useradmin-not-found":
                     setEmailError(err.message);
                     break;
                 case "auth/wrong-password":
                     setPasswordError(err.message);
                     break;
+                default:
+                    
             }
         });
     };
@@ -48,7 +50,7 @@ const AdminApps = () => {
         clearErrors();
         firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(emailadmin, password)
         .catch(err => {
             switch(err.code){
                 case "auth/email-already-in-use":
@@ -58,6 +60,8 @@ const AdminApps = () => {
                 case "auth/weak-password":
                     setPasswordError(err.message);
                     break;
+                default:
+
             }
         });
     };
@@ -68,32 +72,33 @@ const AdminApps = () => {
         .signOut();
     };
 
-    const authListener = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if(user){
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(useradmin => {
+            if(useradmin){
                 clearInputs();
-                setUser(user);
+                setUserAdmin(useradmin);
+               
             } else {
-                setUser("");
+                setUserAdmin("");
+                
             }
         });
-    };
+    });
 
-
-    useEffect(() => {
-        authListener();
-    }, []);
 
     return (
         <div className="App">
-            {user ? (
+            
+            {useradmin ? (
                 <AdminDashboard
                 handleLogout={handleLogout}
+                useradmin={useradmin}
+                emailadmin={emailadmin}
                />   
             ) : (
                 <AdminLogin 
-                email={email} 
-                setEmail={setEmail}
+                email={emailadmin} 
+                setEmailAdmin={setEmailAdmin}
                 password={password}
                 setPassword={setPassword}
                 handleLogin={handleLogin}

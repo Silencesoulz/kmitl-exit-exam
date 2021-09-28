@@ -56,7 +56,7 @@ function Login() {
               <hr/>
               <br/>
               <br/>
-            <h1 align="center" className="headerpossec">สำหรับเจ้าหน้าที่แอดมิน</h1>
+            <h1 align="center" className="headerpossec">สำหรับเจ้าหน้าที่สารสนเทศ</h1>
             <br/>
             <Link to='/adminlogin'>
               <Button

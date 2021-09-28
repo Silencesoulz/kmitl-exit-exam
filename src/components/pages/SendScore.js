@@ -8,7 +8,6 @@ import Information from './Information'
 import UploadFile from './UploadFile'
 import { useForm } from 'react-hook-form'
 
-
 // // function SendScore() {
 // //   const [user, setUser] = useState(null);
 // //   useEffect(() => {
@@ -62,7 +61,7 @@ export default function StepperForm() {
   };
 
 
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, ] = React.useState(0);
   const steps = getSteps();
 
 
@@ -70,7 +69,7 @@ export default function StepperForm() {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <Information formProps={informationForm} />;
+        return <Information formProps={informationForm} /> ;
       case 1:
         return <UploadFile/>;
       default:

@@ -41,12 +41,10 @@ function Navbar() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var email = user.email;
-        console.log(`User has signed in with Email: ${email}`)
         setUser(email)
 
       } else {
         // User is signed out
-        console.log('User is not signed in.')
         setUser(null)
       }
     });
@@ -121,9 +119,7 @@ function Navbar() {
             {user ? (<li className='nav-item'>
               <Link to='/'
                 className='nav-links-mobile'
-                onClick={closeMobileMenu}
                 onClick={() => {
-
                   // signout  
                   firebase.auth().signOut()
                     .then(() => {

@@ -14,6 +14,7 @@ function Footer() {
             <Link 
             to={'//www.google.com/maps/place/อาคารกรมหลวงนราธิวาสราชนครินทร์/@13.730545,100.7771939,19.23z/data=!4m13!1m7!3m6!1s0x311d664d1c95b4a1:0x7a8f908a105384a!2sSoi+Chalong+Krung+1,+Khwaeng+Lat+Krabang,+Khet+Lat+Krabang,+Krung+Thep+Maha+Nakhon+10520!3b1!8m2!3d13.727889!4d100.7682672!3m4!1s0x311d66361ebde36d:0x5c7c183c64f68e5d!8m2!3d13.7307804!4d100.77771'}
             target='_blank'
+            rel="noreferrer"
             className='footer-thai'>
               
             Address : อาคารกรมหลวงนราธิวาสราชนครินทร์ 
@@ -54,6 +55,7 @@ function Footer() {
               class='social-icon-link facebook'
               to={'//www.facebook.com/kmitlofficial'}
               target='_blank'
+              rel="noreferrer"
               aria-label='Facebook'
             >
               <i class='fab fa-facebook-f' />
@@ -62,6 +64,7 @@ function Footer() {
               class='social-icon-link instagram'
               to={'//www.instagram.com/kmitlofficial/'}
               target='_blank'
+              rel="noreferrer"
               aria-label='Instagram'
             >
               <i class='fab fa-instagram' />
@@ -70,6 +73,7 @@ function Footer() {
               class='social-icon-link youtube'
               to={'//www.youtube.com/user/kmitlengscoop'}
               target='_blank'
+              rel="noreferrer"
               aria-label='Youtube'
             >
               <i class='fab fa-youtube' />
@@ -78,6 +82,7 @@ function Footer() {
               class='social-icon-link twitter'
               to={'//twitter.com/kmitlofficial?lang=en'}
               target='_blank'
+              rel="noreferrer"
               aria-label='Twitter'
             >
               <i class='fab fa-twitter' />

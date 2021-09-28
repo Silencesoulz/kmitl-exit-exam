@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -67,7 +67,20 @@ export default function Information() {
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);
-   
+    const [ user, setUser ] = useState(null);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            var email = user.email;
+            setUser(email)
+    
+          } else {
+            // User is signed out
+            setUser(null)
+          }
+        });
+      }, [])
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -122,6 +135,7 @@ export default function Information() {
             Timestamp: timestamp,
             Checkstatus: checkstatus,
             ImgURL: url,
+            Email: user,
         })
             .then(() => {
                 alert("ระบบได้ทำการส่งคะแนนของท่านเรียบร้อยแล้ว")
@@ -143,8 +157,8 @@ export default function Information() {
 
 
     return (
+        
         <Fragment>
-
             <form className="form" onSubmit={onSubmit} >
                 <br />
                 <div className={classes.root}>
@@ -204,6 +218,21 @@ export default function Information() {
                         </Grid>
                         <Grid item md={12} xs={12}>
                             <TextField
+                                register="email"
+                                name="email"
+                                id="email"
+                                label="Email"
+                                margin="normal"
+                                variant="filled"
+                                placeholder="Email สถาบัน"
+                                value={user}
+                                onChange={(e) => setUser(e.target.value)}
+                                required
+                                disabled
+                            />
+                        </Grid>
+                        <Grid item md={12} xs={12}>
+                            <TextField
                                 name="studentid"
                                 id="studentid"
                                 label="รหัสนักศึกษา"
@@ -225,7 +254,7 @@ export default function Information() {
                                 <InputLabel id="">&nbsp;&nbsp;&nbsp;ภาควิชา</InputLabel>
                                 <Select
                                     name="dep"
-                                    labelId=""
+                                    labelId="dep"
                                     id=""
                                     variant="filled"
                                     value={dep}
@@ -253,8 +282,8 @@ export default function Information() {
                                 <InputLabel id="">&nbsp;&nbsp;&nbsp;ประเภทคะแนน</InputLabel>
                                 <Select
                                     name="scoretype"
-                                    labelId=""
-                                    id=""
+                                    labelId="scoretype"
+                                    id="scoretype"
                                     variant="filled"
                                     value={scoretype}
                                     onChange={(e => setScoretype(e.target.value))}
@@ -392,8 +421,8 @@ export default function Information() {
                     )}
                 </div>
             </form>
-
         </Fragment>
+       
     )
 }
 

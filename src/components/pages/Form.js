@@ -71,6 +71,7 @@ export default function Form() {
                             </Grid>
                             <Grid item md={12} xs={12}>
                                 <SendScore/>
+                                <tugetForm/>
                             </Grid>
                         </Grid>
                     </Paper>
