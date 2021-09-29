@@ -68,7 +68,7 @@
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     border-radius: 10px;
     overflow: hidden;
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   .cards__item__pic-wrap {

@@ -1,14 +1,20 @@
 .textfortips {
     font-family: 'Mitr', sans-serif;
+    background-color:#FEFBF3;
 }
 
 .textfortips > h1 {
     padding-top: 50px;
     font-size: 55px;
     justify-content: center;
-    text-align:center;
+    text-align:justify;
     word-spacing: -5px; 
     font-family: 'Mitr', sans-serif;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9D9D9D;
+    padding-bottom: 20px;
+    background-color: #79B4B7;
 }
 
 .textfortips > p {
@@ -18,12 +24,23 @@
     margin-top: 10px;
     text-align:left;
     font-family: 'Mitr', sans-serif;
+    border-width: 2px;
+    border-radius: 55px;
+    padding-top: 25px;
+    padding-bottom : 25px;
+    border-color: #6D9886;
 }
 
 .hrposition {
     width: 100% ;
     position: relative;
     
+}
+
+.listposition {
+    margin-left: 40px;
+    font-size: 20px;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -33,14 +50,17 @@
         justify-content: center;
         word-spacing: -5px; 
         text-align:center;
+        border-width: 2px;
+        border-color: #9D9D9D;
+        padding-bottom: 20px;
   }
 }
 
 @media screen and (max-width: 600px) {
     .textfortips > p {
-        font-size: 18px;
-        padding-left: 30px;
-        padding-right: 15px;
+        font-size: 16px;
+        padding-left: 27px;
+        padding-right: 13px;
         margin-top: 10px;
         text-align:left;
   }
@@ -52,6 +72,9 @@
         font-size: 45px;
         word-spacing: -5px; 
         text-align:center;
+        border-width: 2px;
+        border-color: #9D9D9D;
+        padding-bottom: 20px;
   }
 }
 
@@ -62,5 +85,13 @@
         padding-right: 45px;
         margin-top: 10px;
         text-align:left;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .listposition {
+        margin-left: 15px;
+        padding-left: 5px;
+        padding-right: 10px;
   }
 }

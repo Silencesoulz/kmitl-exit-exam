@@ -17,7 +17,9 @@ const AdminLogin = (props) => {
     return (
         <section className="login">
             <div className="loginContainer">
-                <h1 className="adminheader"><i class="fas fa-user-shield iconadmin"></i>&nbsp;&nbsp;เข้าสู่ระบบ</h1>
+                <h1 className="adminheader">
+                    เข้าสู่ระบบ&nbsp;
+                    <i class="fas fa-user-shield iconadmin"></i></h1>   
                 <br/>
                 <br/>
                 <label>Username&nbsp;<i class="fas fa-user-tie"></i></label>
@@ -40,8 +42,9 @@ const AdminLogin = (props) => {
                 <div className="btnContainer">
                         <>
                         <br/>
-                        <button class="buttonnaja" onClick={handleLogin}>SIGN IN</button>
-                        </>    
+                        <button className="buttonnaja" onClick={handleLogin}>SIGN IN</button>
+                        </> 
+                       
                 </div>
             </div>
         </section>

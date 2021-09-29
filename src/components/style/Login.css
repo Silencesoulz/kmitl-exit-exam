@@ -51,3 +51,24 @@
     font-size: 23px;
     
 }
+
+@media screen and (max-width: 600px) {
+    .headerpos {
+       font-size:20px;
+       padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .headerpos1 {
+       font-size: 13px;
+       padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .headerpossec {
+       font-size: 20px;
+       padding-bottom: 10px;
+  }
+}

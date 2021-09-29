@@ -15,6 +15,7 @@ import { Button } from '@material-ui/core';
 import { Progress, Alert, AlertIcon } from "@chakra-ui/react"
 
 
+
 const useStyles = makeStyles(theme => ({
     root: {
         margin: '-1rem 0 2rem 0',
@@ -67,7 +68,8 @@ export default function Information() {
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);
-    const [ user, setUser ] = useState(null);
+    const [user, setUser] = useState(null);
+    const [error, setError ] = useState("");
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -90,7 +92,7 @@ export default function Information() {
 
 
     const handleUpload = (e) => {
-        const uploadTask = storage.ref(`images/${scoretype}/${dep}/${image.name}`).put(image);
+        const uploadTask = storage.ref(`images/${user}/${image.name}`).put(image);
         uploadTask.on(
             "state_changed",
             snapshot => {
@@ -99,21 +101,21 @@ export default function Information() {
                 );
 
                 setProgress(progress);
-
+                setError("");
             },
             error => {
                 alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
-                console.log(error);
-                
+                setError(error);
+                setProgress("");
             },
             () => {
                 storage
-                    .ref(`images/${scoretype}/${dep}`)
+                    .ref(`images/${user}`)
                     .child(image.name)
                     .getDownloadURL()
                     .then(url => {
                         console.log(url);
-                        setUrl(url)
+                        setUrl(url);
                     });
             }
         )
@@ -160,7 +162,10 @@ export default function Information() {
         
         <Fragment>
             <form className="form" onSubmit={onSubmit} >
-                <br />
+                <h2><i class="fas fa-info-circle"></i> 
+                &nbsp;กรอกข้อมูลส่วนตัวของนักศึกษาด้วยภาษาไทย</h2>
+                <br/>
+                <br/>
                 <div className={classes.root}>
                     <Grid container
                         direction="row"
@@ -345,6 +350,18 @@ export default function Information() {
                         ) : (
                            <div/>
                         )}
+                    
+                        {error ? (
+                            <Alert 
+                            status="error"
+                            >
+                            <AlertIcon />
+                            กรุณาอัพโหลดไฟล์ที่มีขนาดต่ำกว่า 2MB
+                            </Alert>
+                        ) : (
+                            <div/>
+                        )}
+
                         {url ? (
                         <input
                             class="form-control form-control-sm"
