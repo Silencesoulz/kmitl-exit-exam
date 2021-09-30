@@ -113,7 +113,7 @@ export default function Information() {
                 alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
                 setError(error);
                 setProgress("");
-                setRecaptcha("");
+                window.grecaptcha.reset();
             },
             () => {
                 storage
@@ -374,6 +374,7 @@ export default function Information() {
                             class="form-control form-control-sm"
                             type="file"
                             onChange={handleChange}
+                            accept="image/*, .pdf"
                             disabled
                         > 
                         </input>
@@ -383,6 +384,7 @@ export default function Information() {
                             class="form-control form-control-sm"
                             type="file"
                             onChange={handleChange}
+                            accept="image/*, .pdf"
                             required
                         > 
                         </input>
@@ -393,12 +395,11 @@ export default function Information() {
                         <ReCAPTCHA
                     style={{ display: "inline-block"}}
                     type="image"
-                    theme="dark"
+                    theme="light"
                     sitekey="6LcNVp0cAAAAAP8gQVCgZBjgqGb3tmRBiVvvbHfG"
                     // secretkey 6LcNVp0cAAAAAAFR3_q43KH4W2gE4WydoCxDrmr-
                     onChange={onChange}
                     align="center"
-                    required
                     />
                         <br />
                         <br />
