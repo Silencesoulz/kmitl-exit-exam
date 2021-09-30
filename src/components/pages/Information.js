@@ -13,7 +13,7 @@ import firebase from '../../config/firebase-config';
 import 'firebase/auth'
 import { Button } from '@material-ui/core';
 import { Progress, Alert, AlertIcon } from "@chakra-ui/react"
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 const useStyles = makeStyles(theme => ({
@@ -70,6 +70,7 @@ export default function Information() {
     const [progress, setProgress] = useState(0);
     const [user, setUser] = useState(null);
     const [error, setError ] = useState("");
+    const [recaptcha, setRecaptcha] = useState("");
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -91,6 +92,11 @@ export default function Information() {
     };
 
 
+    const onChange = (value) => {
+        console.log("Captcha value:",value);
+        setRecaptcha(value);
+    }
+
     const handleUpload = (e) => {
         const uploadTask = storage.ref(`images/${user}/${image.name}`).put(image);
         uploadTask.on(
@@ -107,6 +113,7 @@ export default function Information() {
                 alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
                 setError(error);
                 setProgress("");
+                setRecaptcha("");
             },
             () => {
                 storage
@@ -330,7 +337,7 @@ export default function Information() {
 
                     <div class="form-group">
                         <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
-                        <p>นักศึกษาสามารถเลือกไฟล์ในการอัพโหลดได้เพียง 1 ไฟล์เท่านั้น</p>
+                        <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น ขนาดไม่เกิน 2MB</p>
                         <p className="remind">!!!ตรวจสอบชื่อไฟล์และเลือกไฟล์ให้ถูกต้องก่อนกดอัพโหลด!!!</p>
                         <br />
                         <label>
@@ -381,8 +388,21 @@ export default function Information() {
                         </input>
                         
                         )}
-                        <br/>
-                        {image ? (
+                        <br />
+                    
+                        <ReCAPTCHA
+                    style={{ display: "inline-block"}}
+                    type="image"
+                    theme="dark"
+                    sitekey="6LcNVp0cAAAAAP8gQVCgZBjgqGb3tmRBiVvvbHfG"
+                    // secretkey 6LcNVp0cAAAAAAFR3_q43KH4W2gE4WydoCxDrmr-
+                    onChange={onChange}
+                    align="center"
+                    required
+                    />
+                        <br />
+                        <br />
+                        {image && recaptcha ? (
                             <Button
                                 style={{
                                     backgroundColor:"#4CAF50",
@@ -411,14 +431,14 @@ export default function Information() {
                                 อัพโหลดไฟล์
                             </Button>
                         )}
-                         
+                        <br />
                         <br />
                         <br />
                         <img src={url} alt="" />
                         <br />
                     </div>
                     <br />
-                    {url ? (
+                    {url && recaptcha ? (
                         <Button
                             variant="contained"
                             color="primary"
