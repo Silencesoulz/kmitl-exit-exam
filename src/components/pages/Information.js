@@ -113,6 +113,8 @@ export default function Information() {
                 alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
                 setError(error);
                 setProgress("");
+                setImage("");
+                setRecaptcha("");
                 window.grecaptcha.reset();
             },
             () => {
