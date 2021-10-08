@@ -60,20 +60,22 @@ function Cards() {
                 className="cards__items"
                 >
                         <CardItem 
-                        src="images/KMITL.png"
+                        src="images/KMITL EXIT EXAM.png"
                         text="ตั้งแต่ 32 คะแนนขึ้นไป "
                         label='KMITL EXIT EXAM'
                         path="/form"  
                         />
+                        
                         </ul>
                 ) : (
                     <ul className="cards__items" onClick={signInWithGooglePopup}>
                     <CardItem 
-                    src="images/KMITL.png"
+                    src="images/KMITL EXIT EXAM.png"
                     text="ตั้งแต่ 32 คะแนนขึ้นไป "
                     label='KMITL EXIT EXAM'
                     path="/"   
                     />
+                   
                     </ul>
                    
                 )}
@@ -143,7 +145,7 @@ function Cards() {
                         
                         />
                        <CardItem 
-                        src="images/KMITL.png"
+                        src="images/KMITL PLACEMENT TEST.png"
                         text="ตั้งแต่ระดับ B1 ขึ้นไป "
                         label='KMITL - TEP'
                         path='/form'
@@ -170,7 +172,7 @@ function Cards() {
                     path='/'
                     />
                    <CardItem 
-                    src="images/KMITL.png"
+                    src="images/KMITL PLACEMENT TEST.png"
                     text="ตั้งแต่ระดับ B1 ขึ้นไป "
                     label='KMITL - TEP'
                     path='/'

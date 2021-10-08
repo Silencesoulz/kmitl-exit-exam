@@ -9,27 +9,29 @@ function Footer() {
       <div class='footer-links'>
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
-            
+
             <h2>About Us</h2>
-            <Link 
-            to={'//www.google.com/maps/place/อาคารกรมหลวงนราธิวาสราชนครินทร์/@13.730545,100.7771939,19.23z/data=!4m13!1m7!3m6!1s0x311d664d1c95b4a1:0x7a8f908a105384a!2sSoi+Chalong+Krung+1,+Khwaeng+Lat+Krabang,+Khet+Lat+Krabang,+Krung+Thep+Maha+Nakhon+10520!3b1!8m2!3d13.727889!4d100.7682672!3m4!1s0x311d66361ebde36d:0x5c7c183c64f68e5d!8m2!3d13.7307804!4d100.77771'}
-            target='_blank'
-            rel="noreferrer"
-            className='footer-thai'>
-              
-            Address : อาคารกรมหลวงนราธิวาสราชนครินทร์ 
-            ชั้น 10 เลขที่ 1 ซอยฉลองกรุง 1 แขวงลาดกระบัง 
-            เขตลาดกระบัง กรุงเทพฯ 10520</Link>
+            <Link
+              to={'//www.google.com/maps/place/KMITL+School+of+Engineering/@13.7281136,100.7757538,17.38z/data=!4m5!3m4!1s0x311d664a6229ce87:0xe18798804c647947!8m2!3d13.7270848!4d100.7746739'}
+              target='_blank'
+              rel="noreferrer"
+              className='footer-thai'>
+
+              Address : No.1, Soi Chalong Krung 1,
+              Chalong Krung Road, Ladkrabang
+              Sub-district, Ladkrabang
+              district, Bangkok 10520</Link>
+
           </div>
           <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
-            <h2>Contact Us</h2>
-            <a href="tel:+66-02-329-8220" className='footer-thai'> 
-            <i class="fas fa-phone-square-alt"></i> : 02 329 8321
-            </a>
-            <a href = "mailto: inter@kmitl.ac.th" className='footer-thai'>
-            <i class="fas fa-envelope"></i> : inter@kmitl.ac.th
-                </a>  
+            <div class='footer-link-items'>
+              <h2>Contact Us</h2>
+              <a href="tel:+66-02-329-8220" className='footer-thai'>
+                <i class="fas fa-phone-square-alt"></i> : 02 329 8321
+              </a>
+              <a href="mailto: inter@kmitl.ac.th" className='footer-thai'>
+                <i class="fas fa-envelope"></i> : ia.eng@kmitl.ac.th
+              </a>
             </div>
           </div>
         </div>
@@ -53,7 +55,7 @@ function Footer() {
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
-              to={'//www.facebook.com/kmitlofficial'}
+              to={'//www.facebook.com/kmitl.engineer.inter'}
               target='_blank'
               rel="noreferrer"
               aria-label='Facebook'
@@ -61,28 +63,26 @@ function Footer() {
               <i class='fab fa-facebook-f' />
             </Link>
             <Link
-              class='social-icon-link instagram'
-              to={'//www.instagram.com/kmitlofficial/'}
+              class='social-icon-link line'
+              to={'//page.line.me/?accountId=717zajri'}
               target='_blank'
               rel="noreferrer"
+              aria-label='Line'
+            >
+              <i class='fab fa-line' />
+            </Link>
+
+            <Link
+              class='social-icon-link instagram'
+              to='/'
               aria-label='Instagram'
             >
               <i class='fab fa-instagram' />
             </Link>
-            <Link
-              class='social-icon-link youtube'
-              to={'//www.youtube.com/user/kmitlengscoop'}
-              target='_blank'
-              rel="noreferrer"
-              aria-label='Youtube'
-            >
-              <i class='fab fa-youtube' />
-            </Link>
+
             <Link
               class='social-icon-link twitter'
-              to={'//twitter.com/kmitlofficial?lang=en'}
-              target='_blank'
-              rel="noreferrer"
+              to='/'
               aria-label='Twitter'
             >
               <i class='fab fa-twitter' />

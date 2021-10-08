@@ -79,7 +79,7 @@ const AdminApps = () => {
             if(useradmin){
                 clearInputs();
                 setUserAdmin(useradmin);
-               
+                
             } else {
                 setUserAdmin("");
                 
@@ -87,17 +87,20 @@ const AdminApps = () => {
         });
     });
 
+   
+
+
 
     return (
         <div className="App">
 
-            {useradmin ? (
+            { useradmin ? (
                 <AdminDashboard
                 handleLogout={handleLogout}
                 useradmin={useradmin}
                 emailadmin={emailadmin}
                />   
-            ) : (
+            ) : ( 
                 <AdminLogin 
                 email={emailadmin} 
                 setEmailAdmin={setEmailAdmin}
@@ -111,6 +114,7 @@ const AdminApps = () => {
                 passwordError={passwordError}
                 />
             )}      
+
         </div>
     )
 }

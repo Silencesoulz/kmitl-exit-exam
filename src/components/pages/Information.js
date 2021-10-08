@@ -156,6 +156,7 @@ export default function Information() {
                 alert("กรุณาล็อกอินด้วยอีเมล์สถาบันเพื่อส่งคะแนนของท่าน");
 
             });
+            
         setTitle("");
         setName("");
         setLastName("");

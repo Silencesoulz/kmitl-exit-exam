@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import '../style/Login.css'
 import firebase from '../../config/firebase-config';
 import 'firebase/auth'
@@ -31,43 +31,63 @@ function Login() {
           });
     
       }
+
+      const [user, setUser] = useState(null);
+      useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            var email = user.email;
+            setUser(email)
     
+          } else {
+            // User is signed out
+            setUser(null)
+          }
+        });
+      }, [])
+
     return (
-        <section className="login">
-        <div className="loginContainer">
-            <h1 align="center" className="headerpos"> สำหรับนักศึกษาให้ล็อกอินด้วยอีเมล์สถาบัน </h1>
-            <p align="center" className="headerpos1">ยืนยันตัวตนด้วยบริการของ Google</p>
-            <p align="center" className="headerpos1">โดยใช้ account (gen2) ของสถาบันฯ</p>
-            <br/>
-            <div className="btn-center">
-            <Link to='/'>
-            <GoogleButton
-            onClick={() => {
-                  signInWithGooglePopup()
-                }}
-                >
-            Login with google EMAIL
-            </GoogleButton>
-            </Link>
-            </div>
-            <br/>
-            <br/>
-            <div>
-              <hr/>
-              <br/>
-              <br/>
-            <h1 align="center" className="headerpossec">สำหรับเจ้าหน้าที่สารสนเทศ</h1>
-            <br/>
-            <Link to='/adminlogin'>
-              <Button
-              className="btn-center"
-              variant="primary"
+
+       <section className="login">
+         { user ? (
+       <div/>
+         ) : (
+          <div className="loginContainer">
+          <h1 align="center" className="headerpos"> สำหรับนักศึกษาให้ล็อกอินด้วยอีเมล์สถาบัน </h1>
+          <p align="center" className="headerpos1">ยืนยันตัวตนด้วยบริการของ Google</p>
+          <p align="center" className="headerpos1">โดยใช้ account (gen2) ของสถาบันฯ</p>
+          <br/>
+          <div className="btn-center">
+          <Link to='/'>
+          <GoogleButton
+          onClick={() => {
+                signInWithGooglePopup()
+              }}
               >
-                เข้าสู่ระบบด้วย Username
-              </Button>
-            </Link>
-            </div>
-        </div>
+          Login with google EMAIL
+          </GoogleButton>
+          </Link>
+          </div>
+          <br/>
+          <br/>
+          <div>
+            <hr/>
+            <br/>
+            <br/>
+          <h1 align="center" className="headerpossec">สำหรับเจ้าหน้าที่สารสนเทศ</h1>
+          <br/>
+          <Link to='/adminlogin'>
+            <Button
+            className="btn-center"
+            variant="primary"
+            >
+              เข้าสู่ระบบด้วย Username
+            </Button>
+          </Link>
+          </div>
+      </div>
+         )
+}
         </section>
     )
 }

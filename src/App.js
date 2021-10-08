@@ -25,7 +25,6 @@ function App() {
         <Route path='/access' component={Access} />
         <Route path='/login' component={Login} />  
         <Route path='/requestform' component={RequestForm} />
-        
       </Switch> 
       <Switch>
       <Route path='/adminlogin' exact component={AdminApps} />

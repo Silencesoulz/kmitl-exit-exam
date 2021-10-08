@@ -1,7 +1,7 @@
 import React from 'react'
 import CardItem from '../CardItem';
 import Clock from 'react-live-clock';
-
+import '../style/Login.css'
 
 const AdminDashboard = ({handleLogout}, props) => {
 
@@ -18,7 +18,7 @@ const AdminDashboard = ({handleLogout}, props) => {
           ticking={true} />
             </nav>     
             <div className ='cards' id='cards'>
-                        <h1>เครื่องมือสำหรับแอดมิน (Tools)</h1>
+                        <h1 className="adminfont">เครื่องมือสำหรับแอดมิน (Tools)</h1>
                         <br/>
                         <br/>
                         <ul className="cards__items">

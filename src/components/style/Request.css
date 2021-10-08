@@ -1,3 +1,14 @@
+.qrcode{
+  border: 1px solid rgb(71, 229, 66);
+  border-width: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  padding: 1px;
+  width: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .text{
     
@@ -20,6 +31,52 @@
     padding-bottom: 25px;
     
 }
+
+.text > h2 {
+    margin-top: -20px;
+    text-align:center;
+    padding-bottom: 20px;
+    font-size: 33px;
+}
+
+@media screen and (max-width: 600px){
+    .text > h2 {
+      margin-top: -20px;
+      text-align:center;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 600px){
+  .text > h2 {
+    margin-top: -20px;
+    text-align:center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 22px;
+  }
+}
+
+
+@media screen and (max-width: 600px){
+    .qrcode {
+      border: 1px solid rgb(71, 229, 66);
+      border-width: 4px;
+      border-radius: 4px;
+      border-style: solid;
+      padding: 1px;
+      width: 200px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+}
+
 
 @media screen and (max-width: 600px) {
     .text > h1 {

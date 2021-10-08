@@ -39,6 +39,17 @@ function Request() {
             )}      
             <div>
                 <br/>
+                <hr/>
+                <br/>
+                <br/>
+            </div>
+            <div className='text'> 
+              <h2>นักศึกษาสามารถติดต่อสอบถามข้อมูลเพิ่มเติมได้ที่นี่ "SCAN QRCODE HERE !"</h2>
+              <br/>
+              <img src="/images/Line QR.JPG" className="qrcode" alt="QR code"/>
+              <br/>
+              <br/>
+              <br/>
             </div>
          </div>
          
