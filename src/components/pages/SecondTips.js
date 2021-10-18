@@ -9,7 +9,7 @@ function SecondTips() {
         <div className='textfortips'>
             <br />
             <br />
-            <h1>GET TO KNOW KMITL EXIT EXAM! </h1>
+            <h1>มารู้จัก KMITL EXIT EXAM กันเถอะ!</h1>
             <br />
             <br />
             <p>&nbsp;&nbsp;&nbsp;คือการสอบวัดความรู้ทักษะภาษาอังกฤษก่อนสำเร็จการศึกษา
@@ -48,6 +48,9 @@ function SecondTips() {
             <br />
             <br />
             <br />
+            <br />
+            
+            
             <div align="center">
                 <Image
                     objectFit="cover"

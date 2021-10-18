@@ -9,7 +9,7 @@ import Login from './components/pages/Login';
 import "firebase/auth";
 import AdminApps from './components/pages/AdminApps';
 import RequestForm from './components/pages/RequestForm';
-
+import UploadFile from './components/pages/UploadFile';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path='/access' component={Access} />
         <Route path='/login' component={Login} />  
         <Route path='/requestform' component={RequestForm} />
+        <Route path='/examplefile' component={UploadFile} />
       </Switch> 
       <Switch>
       <Route path='/adminlogin' exact component={AdminApps} />

@@ -8,6 +8,30 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+}
+
+.lineicon{
+  color:#00B900;
+}
+
+.linkicon{
+  color:#5C7AEA;
+}
+
+.facebookicon{
+  color:#1877f2;
+}
+
+.instagramicon{
+  color: white;
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.twittericon{
+  color:#1DA1F2;
 }
 
 .text{
@@ -15,6 +39,12 @@
     font-family: 'Mitr', sans-serif;
     
 }
+
+.hrlength {
+  width: 90%;
+  margin: auto;
+}
+
 
 .text > h1 {
     margin-top: -20px;
@@ -29,15 +59,17 @@
     font-size: 20px;
     font-family: 'Mitr', sans-serif;
     padding-bottom: 25px;
-    
+    padding-top: 15px;
+    padding-bottom: 25px;
 }
 
 .text > h2 {
     margin-top: -20px;
     text-align:center;
     padding-bottom: 20px;
-    font-size: 33px;
+    font-size: 35px;
 }
+
 
 @media screen and (max-width: 600px){
     .text > h2 {
@@ -57,10 +89,20 @@
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 15px;
-    font-size: 22px;
+    font-size: 26px;
   }
 }
 
+@media screen and (min-width: 992px){
+  .text > h2 {
+    margin-top: -20px;
+    text-align:center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 28px;
+  }
+}
 
 @media screen and (max-width: 600px){
     .qrcode {
@@ -77,20 +119,54 @@
 
 }
 
+@media screen and (min-width: 600px){
+
+  .qrcode {
+    border: 1px solid rgb(71, 229, 66);
+    border-width: 4px;
+    border-radius: 4px;
+    border-style: solid;
+    padding: 1px;
+    width: 270px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media screen and (min-width: 992px){
+
+  .qrcode {
+    border: 1px solid rgb(71, 229, 66);
+    border-width: 4px;
+    border-radius: 4px;
+    border-style: solid;
+    padding: 1px;
+    width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
 
 @media screen and (max-width: 600px) {
     .text > h1 {
-      font-size: 20px;
+      font-size: 22px;
       text-align: center;
-      
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
 
 @media screen and (max-width: 600px) {
     .text > p {
-      font-size: 16px;
+      font-size: 18px;
       text-align: center;
       justify-content:space-evenly;
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
 
@@ -98,15 +174,18 @@
     .text > h1 {
       font-size: 25px;
       text-align: center;
-      
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
 
 @media screen and (min-width: 600px) {
     .text > p {
-      font-size: 18px;
+      font-size: 21px;
       text-align: center;
       justify-content:space-evenly;
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
 
@@ -114,7 +193,8 @@
     .text > h1 {
       font-size: 30px;
       text-align: center;
-      
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
 
@@ -123,10 +203,10 @@
       font-size: 24px;
       text-align: center;
       justify-content:space-evenly;
+      padding-left: 13px;
+      padding-right: 13px;
   }
 }
-
-
 
 .button {
   color: white;

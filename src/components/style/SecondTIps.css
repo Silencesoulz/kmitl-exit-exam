@@ -14,7 +14,7 @@
     border-width: 2px;
     border-color: #9D9D9D;
     padding-bottom: 20px;
-    background-color: #79B4B7;
+    background-color: #F9CF93;
 }
 
 .textfortips > p {
@@ -45,14 +45,15 @@
 
 @media screen and (max-width: 600px) {
     .textfortips > h1 {
-        padding-top: 25px;
-        font-size: 28px;
+        margin-top: 20px;
+        padding-top: 30px;
+        font-size: 25px;
         justify-content: center;
         word-spacing: -5px; 
         text-align:center;
         border-width: 2px;
-        border-color: #9D9D9D;
-        padding-bottom: 20px;
+        border-color: rgba(0, 0, 0, 0.364);
+        padding-bottom: 30px;
   }
 }
 
@@ -93,5 +94,19 @@
         margin-left: 15px;
         padding-left: 5px;
         padding-right: 10px;
+        font-size: 15px;
   }
 }
+
+@media screen and (min-width: 600px) {
+    .listposition { 
+        font-size: 20px;
+}
+}
+
+@media screen and (min-width: 992px) {
+    .listposition { 
+        font-size: 21px;
+}
+}
+

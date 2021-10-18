@@ -11,6 +11,12 @@
   text-rendering: optimizeLegibility;
 }
 
+.textforh3form {
+  color :#4A403A;
+}
+
+
+
 .requestbody {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
@@ -21,10 +27,11 @@
   height: 100%;
   margin-top: -80px;
   border-width: 1px;
+  background-color: #F3C583;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -36,11 +43,13 @@
   border-width: 2px;
   border-radius: 5px;
   padding-left: 10px;
-  padding-top: 5px;
-  padding-bottom : 5px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom : 10px;
   margin-bottom: 20px;
   border-color: #6D9886;
   background-color: #FFFFFF;
+
 }
 
 

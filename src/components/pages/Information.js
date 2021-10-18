@@ -110,7 +110,7 @@ export default function Information() {
                 setError("");
             },
             error => {
-                alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 2MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
+                alert("กรุณาอัพโหลดไฟล์หลักฐานที่มีขนาดต่ำกว่า 4MB และอัพโหลดด้วยอีเมล์สถาบันเท่านั้น")
                 setError(error);
                 setProgress("");
                 setImage("");
@@ -184,7 +184,7 @@ export default function Information() {
                         spacing={2}
                     >
                         {/* <Grid item md={12} xs={12}> */}
-                        <FormControl className={classes.formControl}>
+                        <FormControl fullWidth>
                             <InputLabel id="">&nbsp;&nbsp;&nbsp;คำนำหน้าชื่อ</InputLabel>
                             <Select
                                 variant="standard"
@@ -203,7 +203,7 @@ export default function Information() {
                         </FormControl>
                         {/* </Grid>     */}
                         <Grid item md={12} xs={12}>
-                            <TextField
+                            <TextField fullWidth
                                 name="name"
                                 id="name"
                                 label="ชื่อ"
@@ -218,7 +218,7 @@ export default function Information() {
                         </Grid>
 
                         <Grid item md={12} xs={12}>
-                            <TextField
+                            <TextField fullWidth
                                 register="lastname"
                                 name="lastname"
                                 id="lastname"
@@ -232,7 +232,7 @@ export default function Information() {
                             />
                         </Grid>
                         <Grid item md={12} xs={12}>
-                            <TextField
+                            <TextField fullWidth
                                 register="email"
                                 name="email"
                                 id="email"
@@ -247,7 +247,7 @@ export default function Information() {
                             />
                         </Grid>
                         <Grid item md={12} xs={12}>
-                            <TextField
+                            <TextField fullWidth
                                 name="studentid"
                                 id="studentid"
                                 label="รหัสนักศึกษา"
@@ -264,10 +264,9 @@ export default function Information() {
                         {/* // Dropdown section */}
 
                         <Grid item md={12} xs={12}>
-                            <br />
-                            <FormControl className={classes.formControl}>
+                            <FormControl fullWidth>
                                 <InputLabel id="">&nbsp;&nbsp;&nbsp;ภาควิชา</InputLabel>
-                                <Select
+                                <Select 
                                     name="dep"
                                     labelId="dep"
                                     id=""
@@ -292,8 +291,9 @@ export default function Information() {
                                 </Select>
                             </FormControl>
                         </Grid>
+                        
                         <Grid item md={12} xs={12}>
-                            <FormControl className={classes.formControl}>
+                            <FormControl fullWidth>
                                 <InputLabel id="">&nbsp;&nbsp;&nbsp;ประเภทคะแนน</InputLabel>
                                 <Select
                                     name="scoretype"
@@ -318,7 +318,7 @@ export default function Information() {
                         </Grid>
 
                         <Grid item md={12} xs={12}>
-                            <FormControl className={classes.formControl}>
+                            <FormControl fullWidth>
                                 <InputLabel id=""></InputLabel>
                                 <TextField
                                     name="level"
@@ -340,7 +340,7 @@ export default function Information() {
 
                     <div class="form-group">
                         <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
-                        <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น ขนาดไม่เกิน 2MB</p>
+                        <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น ขนาดไม่เกิน 4MB</p>
                         <p className="remind">!!!ตรวจสอบชื่อไฟล์และเลือกไฟล์ให้ถูกต้องก่อนกดอัพโหลด!!!</p>
                         <br />
                         <label>
@@ -366,7 +366,7 @@ export default function Information() {
                             status="error"
                             >
                             <AlertIcon />
-                            กรุณาอัพโหลดไฟล์ที่มีขนาดต่ำกว่า 2MB
+                            กรุณาอัพโหลดไฟล์ที่มีขนาดต่ำกว่า 4MB
                             </Alert>
                         ) : (
                             <div/>

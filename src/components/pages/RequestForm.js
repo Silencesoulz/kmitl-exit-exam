@@ -12,6 +12,9 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function RequestForm() {
 
@@ -39,6 +42,7 @@ function RequestForm() {
   const [expectmonth, setExpectMonth] = useState("");
   const timestamp = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
   const [error, setError] = useState("");
+  const [status, setStatus] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +55,7 @@ function RequestForm() {
       Email: user,
       Expectmonth: expectmonth,
       StudentID: studentid,
-
+      Status: status,
     })
       .then(() => {
         alert("ระบบได้ทำการส่งคำร้องของท่านเรียบร้อยแล้ว")
@@ -65,6 +69,9 @@ function RequestForm() {
     setLastname("");
     setDetail("");
     setError("");
+    setStudentID("");
+    setExpectMonth("");
+    setStatus("");
   };
 
   return (
@@ -81,7 +88,7 @@ function RequestForm() {
           )
           }
           <br />
-          <h3>แบบฟอร์มยื่นคำร้อง</h3>
+          <h3 className="textforh3form">แบบฟอร์มยื่นคำร้อง</h3>
           <h4>สำหรับนักศึกษาที่ไม่สามารถส่งผลสอบได้ในช่วงเวลาที่กำหนด</h4>
           <fieldset>
             <input
@@ -122,29 +129,50 @@ function RequestForm() {
             />
           </fieldset>
           <br />
-  
-          <FormControl component="fieldset">
-            <FormLabel component="legend">ท่านคาดว่าจะไปสอบ Exit Exam หรือสอบภาษาอังกฤษอื่นๆ เมื่อไหร่?</FormLabel>
+
+          <FormControl fullWidth>
+            <InputLabel id="">&nbsp;&nbsp;&nbsp;สถานะการสอบวัดระดับภาษาอังกฤษ</InputLabel>
+            <Select
+              name="status"
+              labelId="status"
+              id="status"
+              variant="filled"
+              value={status}
+              onChange={(e => setStatus(e.target.value))}
+              required
+            >
+              <MenuItem value='S - สอบ Exit Exam ผ่านแล้ว'>S - สอบ Exit Exam ผ่านแล้ว</MenuItem>
+              <MenuItem value='U - สอบ Exit Exam ยังไม่ผ่าน'>U - สอบ Exit Exam ยังไม่ผ่าน</MenuItem>
+              <MenuItem value='Exempt - ใช้คะแนนสอบภาษาอื่น'>Exempt - ใช้คะแนนสอบภาษาอื่น</MenuItem>
+              <MenuItem value='ยังไม่เคยสอบ Exit Exam หรือยื่นคะแนนอื่น'>ยังไม่เคยสอบ Exit Exam หรือยื่นคะแนนอื่น</MenuItem>
+              
+            </Select>
+          </FormControl>
+          <br />
+          <br />
+          <FormControl fullWidth className="monthcontainer">
+            <FormLabel component="legend">ท่านคาดว่าจะไปสอบ Exit Exam หรือสอบภาษาอังกฤษอื่นๆ เมื่อไหร่? (สำหรับนักศึกษาที่ยังไม่ผ่านและยังไม่เคยสอบ)</FormLabel>
             <RadioGroup
               aria-label=""
               name="controlled-radio-buttons-group"
               value={expectmonth}
               onChange={(e) => setExpectMonth(e.target.value)}
-              required
             >
               <FormControlLabel value="มีนาคม" control={<Radio />} label="เดือน มีนาคม" />
               <FormControlLabel value="เมษายน" control={<Radio />} label="เดือน เมษายน" />
               <FormControlLabel value="พฤษภาคม" control={<Radio />} label="เดือน พฤษภาคม" />
               <FormControlLabel value="มิถุนายน" control={<Radio />} label="เดือน มิถุนายน" />
               <FormControlLabel value="กรกฏาคม" control={<Radio />} label="เดือน กรกฎาคม" />
-              <FormControlLabel value="อื่นๆ" control={<Radio />} label="อื่นๆ" />
+              <FormControlLabel value="อื่นๆ" control={<Radio required/>} label="อื่นๆ เช่น นักศึกษามีผลการสอบผ่านแล้ว" />
             </RadioGroup>
           </FormControl>
-
-          <fieldset>
+          <br/>
+          <br/>
+      
+          <fieldset className="monthcontainer">
+          <h4>หมายเหตุ (สำหรับนักศึกษาที่ยังไม่ผ่านและยังไม่เคยสอบ)</h4>
             <textarea
-              placeholder="กรุณาให้เหตุผลที่ท่านยังไม่สามารถไปสอบ"
-              required
+              placeholder="กรุณาให้เหตุผลที่ท่านยังไม่สามารถไปสอบ (เช่น รอสอบพร้อมเพื่อน, ยังไม่สำเร็จการศึกษาในปีนี้)"
               value={detail}
               onChange={(e) => setDetail(e.target.value)}
             >

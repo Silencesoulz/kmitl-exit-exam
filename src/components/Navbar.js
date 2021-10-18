@@ -73,10 +73,18 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <a href="/">
+            <img 
+            src="images/logo2.png" 
+            alt="logo"
+            width="130px"
+            className="navbar-logo"
+            />
+            </a>
+          {/* <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             K- EXIT EXAM &nbsp;
             <i class="fas fa-school"></i>
-          </Link>
+          </Link> */}
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -92,7 +100,7 @@ function Navbar() {
               <Link to='/tips'
                 className='nav-links'
                 onClick={closeMobileMenu}>
-                เทคนิคพิชิต Exit Exam
+                เทคนิคพิชิต EXIT EXAM
               </Link>
             </li>
             {user ? (<li className='nav-item'>

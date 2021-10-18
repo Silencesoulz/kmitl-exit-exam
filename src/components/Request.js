@@ -32,6 +32,7 @@ function Request() {
             >กดที่นี่เพื่อยื่นคำร้อง</a></p> 
             ) : (
             <p>
+    
                 <a
             class="btn btn-danger button"
             href={'/login'}
@@ -39,13 +40,21 @@ function Request() {
             )}      
             <div>
                 <br/>
-                <hr/>
+                <hr className="hrlength"/>
                 <br/>
                 <br/>
             </div>
             <div className='text'> 
-              <h2>นักศึกษาสามารถติดต่อสอบถามข้อมูลเพิ่มเติมได้ที่นี่ "SCAN QRCODE HERE !"</h2>
+              <h2>นักศึกษาสามารถติดต่อสอบถามข้อมูลเพิ่มเติมผ่านช่องทาง</h2>
               <br/>
+              <h2><i class="fab fa-line lineicon"></i> LINE OFFICIAL : <a 
+              href="https://page.line.me/?accountId=717zajri"
+              target="_blank"
+              rel="noreferrer"
+              >@717zajri <i class="fas fa-external-link-alt linkicon"></i> </a>
+             </h2>
+              <br/>
+              <h2>"หรือ SCAN QRCODE HERE!"</h2><br/>
               <img src="/images/Line QR.JPG" className="qrcode" alt="QR code"/>
               <br/>
               <br/>

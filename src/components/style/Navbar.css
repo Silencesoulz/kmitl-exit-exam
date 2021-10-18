@@ -17,64 +17,41 @@
     justify-content: center;
     align-items: center;
     height: 60px; 
-    max-width: 1500px;
     font-family: 'Mitr', sans-serif;
     
   }
   
   .navbar-logo {
-    color: #fff;
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1.7rem;
-    display: flex;
-    align-items: center;
-    text-decoration: none !important;
-    
+   vertical-align: middle;
+   display: inline-block;
+   max-width: 100%;
+   border: none;
+
   }
 
-  @media only screen and (max-width: 320px) {
-    .navbar-logo {
-      
-      font-size: 15px;
-    
-    }
-  }
+
   @media only screen and (max-width: 600px) {
     .navbar-logo {
-      margin-left: -20px;
-      font-size: 15px;
-    
+      height: 45px;
+      margin-left: -10px;
+      top: -10px;
     }
   }
 
   @media screen and (min-width: 600px) {
     .navbar-logo {
       position: relative;
-      font-size: 1.2rem;
-      margin-left: -15px;
+      height:40px;
+      left: 10px;
     }
   }
 
   @media screen and (min-width: 992px) {
     .navbar-logo {
       position:relative;
-      font-size: 18px;
       margin-left: -10px;
       padding-right:5px ;
       padding-bottom: -5px;
-    }
-  }
-
-  @media screen and (max-width: 2800px) {
-    .navbar-logo {
-      
-      font-size: 22px;
-      margin-top: 10px;
-      
-      padding-left: 10px;
     }
   }
 

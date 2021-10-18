@@ -38,7 +38,7 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>Learning Path</h2>
-            <Link to='/' className='footer-thai'>Sample Exam File</Link>
+            <Link to='/examplefile' className='footer-thai'>Upload file Example</Link>
             <Link to='/' className='footer-thai'>Tutorials</Link>
           </div>
         </div>
@@ -60,32 +60,32 @@ function Footer() {
               rel="noreferrer"
               aria-label='Facebook'
             >
-              <i class='fab fa-facebook-f' />
+              <i class='fab fa-facebook-f facebookicon' />
             </Link>
-            <Link
-              class='social-icon-link line'
-              to={'//page.line.me/?accountId=717zajri'}
-              target='_blank'
-              rel="noreferrer"
-              aria-label='Line'
+            <a 
+            href = "https://page.line.me/?accountId=717zajri"
+            className = 'social-icon-link line'
+            target='_blank'
+            rel="noreferrer"
+            aria-label='Line'
             >
-              <i class='fab fa-line' />
-            </Link>
+              <i class='fab fa-line lineicon' />
+            </a>
 
             <Link
               class='social-icon-link instagram'
               to='/'
               aria-label='Instagram'
             >
-              <i class='fab fa-instagram' />
+              <i class='fab fa-instagram instagramicon' />
             </Link>
 
             <Link
-              class='social-icon-link twitter'
+              class='social-icon-link twitter '
               to='/'
               aria-label='Twitter'
             >
-              <i class='fab fa-twitter' />
+              <i class='fab fa-twitter twittericon' />
             </Link>
           </div>
         </div>

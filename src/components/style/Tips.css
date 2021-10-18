@@ -14,3 +14,51 @@
     text-decoration: black;
     
 }
+
+.tipsHeader {
+    font-family: 'Mitr', sans-serif;
+    font-size:40px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 40px;
+    position: relative;
+    text-decoration:underline;
+}
+
+
+@media screen and (max-width: 600px){
+    .tipsHeader {
+        font-family: 'Mitr', sans-serif;
+        font-size:27px;
+        margin-top: -30px;
+        padding-bottom: 30px;
+        margin-bottom: 10px;
+        text-align: center;
+        position: relative;
+        text-decoration:underline;
+}
+}
+
+@media screen and (min-width: 600px){
+    .tipsHeader {
+        font-family: 'Mitr', sans-serif;
+        font-size:38px;
+        margin-top: -30px;
+        padding-bottom: 20px;
+        text-align: center;
+        position: relative;
+        text-decoration:underline;
+}
+}
+
+@media screen and (min-width: 992px){
+    .tipsHeader {
+        font-family: 'Mitr', sans-serif;
+        font-size:40px;
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 40px;
+        position: relative;
+        text-decoration:underline;
+}
+}

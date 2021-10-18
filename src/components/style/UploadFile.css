@@ -1,0 +1,31 @@
+.bguploadfile {
+    width: auto;
+    box-sizing: border-box;
+    
+}
+
+.uploadheader {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Mitr', sans-serif;
+    border: solid;
+    border-width:3px ;
+    border-radius: 10px;
+    border-style: dashed;
+    margin-top: 20px;
+    margin-bottom : 20px;
+}
+
+.subject {
+    font-size: 25px;
+    text-align: center;
+    display: block;
+    font-family: 'Mitr', sans-serif;
+}
+
+.centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }

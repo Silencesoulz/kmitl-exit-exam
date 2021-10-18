@@ -7,7 +7,13 @@ function Tips() {
 
 
   return (
+    
     <div className="Tips">
+      <div>
+        <br/><br/>
+        <h1 className="tipsHeader">เทคนิคพิชิต EXIT EXAM</h1>
+        <br/>
+      </div>
     <Carousel 
     variant="dark"
     nextLabel=""
