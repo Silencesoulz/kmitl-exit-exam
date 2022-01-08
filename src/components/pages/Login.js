@@ -11,7 +11,8 @@ function Login() {
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({
         prompt: 'select_account',
-        'hd': 'kmitl.ac.th'
+        'hd': 'kmitl.ac.th',
+        
     })
     function signInWithGooglePopup() {
         firebase.auth()

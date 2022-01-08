@@ -54,7 +54,7 @@ function Request() {
               >@717zajri <i class="fas fa-external-link-alt linkicon"></i> </a>
              </h2>
               <br/>
-              <h2>"หรือ SCAN QRCODE HERE!"</h2><br/>
+              <h2>"หรือ สแกน QR Code ที่นี่"</h2><br/>
               <img src="/images/Line QR.JPG" className="qrcode" alt="QR code"/>
               <br/>
               <br/>

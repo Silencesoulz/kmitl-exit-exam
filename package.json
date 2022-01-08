@@ -33,6 +33,7 @@
     "react-mailto": "^0.4.0",
     "react-moment": "^1.1.1",
     "react-particles-js": "^3.5.3",
+    "react-pdf": "^5.6.0",
     "react-responsive-carousel": "^3.2.21",
     "react-responsive-modal": "^6.1.0",
     "react-retool": "^0.4.1",

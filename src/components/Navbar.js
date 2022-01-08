@@ -32,7 +32,9 @@ function Navbar() {
 
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({
-    'hd': 'kmitl.ac.th'
+    prompt: 'select_account',
+    'hd': 'kmitl.ac.th',
+    
   })
   
   const [user, setUser] = useState(null);
@@ -75,9 +77,9 @@ function Navbar() {
         <div className="navbar-container">
           <a href="/">
             <img 
-            src="images/logo2.png" 
-            alt="logo"
-            width="130px"
+            src="images/kmitllogo.png" 
+            alt="kmitlexitexam logo"
+            width='165px'
             className="navbar-logo"
             />
             </a>

@@ -6,13 +6,14 @@ import Footer from '../Footer';
 import Request from '../Request';
 import ScrollToTop from '../ScrollToTop';
 import Navbar from '../Navbar';
-
+import File from './Announcementfile';
 
 function Home () {
     return (
         <>
             <Navbar />
             <HeroSection />
+            <File />
             <Cards />
             <Request />
             <Footer />

@@ -184,12 +184,12 @@ export default function Information() {
                         spacing={2}
                     >
                         {/* <Grid item md={12} xs={12}> */}
-                        <FormControl fullWidth>
-                            <InputLabel id="">&nbsp;&nbsp;&nbsp;คำนำหน้าชื่อ</InputLabel>
+                        <FormControl fullWidth>  
+                            <InputLabel id="">&nbsp;&nbsp;&nbsp;คำนำหน้าชื่อ</InputLabel>                    
                             <Select
                                 variant="standard"
                                 name="title"
-                                margin="dense"
+                                //margin="dense"
                                 labelId=""
                                 id=""
                                 value={title}
@@ -202,6 +202,7 @@ export default function Information() {
                             </Select>
                         </FormControl>
                         {/* </Grid>     */}
+                        
                         <Grid item md={12} xs={12}>
                             <TextField fullWidth
                                 name="name"
@@ -215,8 +216,7 @@ export default function Information() {
                                 required
                             />
 
-                        </Grid>
-
+                        </Grid>       
                         <Grid item md={12} xs={12}>
                             <TextField fullWidth
                                 register="lastname"
@@ -236,10 +236,8 @@ export default function Information() {
                                 register="email"
                                 name="email"
                                 id="email"
-                                label="Email"
                                 margin="normal"
                                 variant="filled"
-                                placeholder="Email สถาบัน"
                                 value={user}
                                 onChange={(e) => setUser(e.target.value)}
                                 required
@@ -340,7 +338,7 @@ export default function Information() {
 
                     <div class="form-group">
                         <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
-                        <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น ขนาดไม่เกิน 4MB</p>
+                        <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น( ไฟล์ PDF ขนาดไม่เกิน 4MB ) กรุณารวมเอกสารผลสอบคะแนนและบัตรนักศึกษาเป็นไฟล์เดียวกัน</p>
                         <p className="remind">!!!ตรวจสอบชื่อไฟล์และเลือกไฟล์ให้ถูกต้องก่อนกดอัพโหลด!!!</p>
                         <br />
                         <label>

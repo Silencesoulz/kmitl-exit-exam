@@ -1,0 +1,39 @@
+.File {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: -20px;
+    font-family: 'Mitr', sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width: 320px){
+    .File{
+      font-size: 13px;
+    }
+
+  }
+
+
+  
+  @media only screen and (min-width: 1200px) {
+    .File {
+        font-size: 26px;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .File {
+        font-size: 22px;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .File {
+        font-size: 16px;
+    }
+  } 
+
+  .download-color {
+    color:#248CC8;
+  }
