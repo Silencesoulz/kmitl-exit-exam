@@ -56,7 +56,9 @@ function Login() {
           <div className="loginContainer">
           <h1 align="center" className="headerpos"> สำหรับนักศึกษาให้ล็อกอินด้วยอีเมล์สถาบัน </h1>
           <p align="center" className="headerpos1">ยืนยันตัวตนด้วยบริการของ Google</p>
-          <p align="center" className="headerpos1">โดยใช้ account (gen2) ของสถาบันฯ</p>
+          <p align="center" className="headerpos1">โดยใช้ Account (gen2) ของสถาบันฯ</p>
+          <br/>
+          <p align="center" className="headerpos2">กรุณาล็อกอินด้วย Browser (Google Chrome, Microsoft Edge และ Safari)</p>
           <br/>
           <div className="btn-center">
           <Link to='/'>

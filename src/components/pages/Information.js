@@ -304,6 +304,7 @@ export default function Information() {
                                 >
                                     <MenuItem value='KMITL EXIT EXAM'>KMITL EXIT EXAM</MenuItem>
                                     <MenuItem value='KMITL-TEP'>KMITL-TEP</MenuItem>
+                                    <MenuItem value='KMITL Placement Test'>KMITL Placement Test</MenuItem>
                                     <MenuItem value='IELTS'>IELTS</MenuItem>
                                     <MenuItem value='TOEFL(IPT)'>TOEFL(IPT)</MenuItem>
                                     <MenuItem value='TOEFL(IBT)'>TOEFL(IBT)</MenuItem>
@@ -337,7 +338,7 @@ export default function Information() {
                     <br />
 
                     <div class="form-group">
-                        <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 640xxxxx_ชื่อ )</p>
+                        <p><i class="far fa-check-circle"></i>&nbsp;ให้นักศึกษาเปลี่ยนชื่อไฟล์ดังนี้ ( เช่น 610xxxxx_ชื่อ )</p>
                         <p>นักศึกษาสามารถอัพโหลดได้เพียง 1 ไฟล์เท่านั้น( ไฟล์ PDF ขนาดไม่เกิน 4MB ) กรุณารวมเอกสารผลสอบคะแนนและบัตรนักศึกษาเป็นไฟล์เดียวกัน</p>
                         <p className="remind">!!!ตรวจสอบชื่อไฟล์และเลือกไฟล์ให้ถูกต้องก่อนกดอัพโหลด!!!</p>
                         <br />

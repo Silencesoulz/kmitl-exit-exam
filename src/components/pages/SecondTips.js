@@ -54,7 +54,7 @@ function SecondTips() {
             <div align="center">
                 <Image
                     objectFit="cover"
-                    src="images/kexitexamdet.jpeg"
+                    src="images/2022kmitl.jpg"
                     alt="Detail"
                 />
             <br />
