@@ -101,6 +101,12 @@ function Cards() {
                         label='TOEFL (iBT)'
                         path='/form'              
                         />
+                        <CardItem 
+                        src="images/toeic.png"
+                        text="ตั้งแต่ 500 คะแนนขึ้นไป"
+                        label='TOEIC'
+                        path='/form'         
+                        />  
                     </ul>
                 ) : (
                     <ul className="cards__items" onClick={signInWithGooglePopup}>
@@ -122,15 +128,29 @@ function Cards() {
                     label='TOEFL (iBT)'
                                   
                     />
+
+                    <CardItem 
+                      src="images/toeic.png"
+                      text="ตั้งแต่ 500 คะแนนขึ้นไป"
+                      label='TOEIC'
+                                   
+                    />  
+                    
                 </ul>
                 )}
                 { user ? (
                     <ul className="cards__items" >
-                        <CardItem 
-                        src="images/toeic.png"
-                        text="ตั้งแต่ 500 คะแนนขึ้นไป"
-                        label='TOEIC'
-                        path='/form'               
+                         <CardItem 
+                        src="images/KMITL-TEP.png"
+                        text="ตั้งแต่ระดับ B1 ขึ้นไป"
+                        label='KMITL-TEP'
+                        path='/form'           
+                         />
+                         <CardItem 
+                        src="images/KMITL PLACEMENT TEST.png"
+                        text="ตั้งแต่ระดับ B1 ขึ้นไป "
+                        label='KMITL - TEP'
+                        path='/form'
                         />
                         <CardItem 
                         src="images/cu-tep.png"
@@ -145,20 +165,22 @@ function Cards() {
                         path='/form'
                         
                         />
-                       <CardItem 
-                        src="images/KMITL PLACEMENT TEST.png"
-                        text="ตั้งแต่ระดับ B1 ขึ้นไป "
-                        label='KMITL - TEP'
-                        path='/form'
-                        />
+                      
                         </ul>
                 ) :  (
                     <ul className="cards__items" onClick={signInWithGooglePopup}>
-                    <CardItem 
-                    src="images/toeic.png"
-                    text="ตั้งแต่ 500 คะแนนขึ้นไป"
-                    label='TOEIC'
-                              
+                   <CardItem 
+                        src="images/KMITL-TEP.png"
+                        text="ตั้งแต่ระดับ B1 ขึ้นไป"
+                        label='KMITL-TEP'
+                                  
+                   />
+
+                   <CardItem 
+                    src="images/KMITL PLACEMENT TEST.png"
+                    text="ตั้งแต่ระดับ B1 ขึ้นไป "
+                    label='KMITL Placement Test'
+                   
                     />
                     <CardItem 
                     src="images/cu-tep.png"
@@ -172,12 +194,7 @@ function Cards() {
                     label='TU - GET'
                     
                     />
-                   <CardItem 
-                    src="images/KMITL PLACEMENT TEST.png"
-                    text="ตั้งแต่ระดับ B1 ขึ้นไป "
-                    label='KMITL - TEP'
                    
-                    />
                     </ul>
                 )}
                       
